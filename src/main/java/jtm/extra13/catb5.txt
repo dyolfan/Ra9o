@@ -1,19 +1,42 @@
+1459
+1460  = Bibliography =
+1461
+1462  I quoted several bits from Frederick P. Brooks's classic The Mythical Man-Month because, in many
+1463  respects, his insights have yet to be improved upon. I heartily recommend the 25th Anniversary
+1464  edition from Addison-Wesley (ISBN 0-201-83595-9), which adds his 1986 "No Silver Bullet" paper.
+1465
+1466  The new edition is wrapped up by an invaluable 20-years-later retrospective in which Brooks
+1467  forthrightly admits to the few judgements in the original text which have not stood the test of
+1468  time. I first read the retrospective after the first public version of this essay was substantially
+1469  complete, and was surprised to discover that Brooks attributed bazaar-like practices to Microsoft!
+1470  (In fact, however, this attribution turned out to be mistaken. In 1998 we learned from the Halloween
+1471  Documents that Microsoft's internal developer community is heavily balkanized, with the kind of
+1472  general source access needed to support a bazaar not even truly possible.)
+1473
+1474  Gerald M. Weinberg's The Psychology Of Computer Programming (New York, Van Nostrand Reinhold 1971)
+1475  introduced the rather unfortunately-labeled concept of "egoless programming". While he was nowhere
+1476  near the first person to realize the futility of the "principle of command", he was probably the
+1477  first to recognize and argue the point in particular connection with software development.
+1478
+1479  Richard P. Gabriel, contemplating the Unix culture of the pre-Linux era, reluctantly argued for the
+1480  superiority of a primitive bazaar-like model in his 1989 paper "LISP: Good News, Bad News, and How
+1481  To Win Big". Though dated in some respects, this essay is still rightly celebrated among LISP fans
+1482  (including me). A correspondent reminded me that the section titled "Worse Is Better" reads almost
+1483  as an anticipation of Linux. The paper is accessible on the World Wide Web at
+1484  http://www.naggum.no/worse-is-better.html.
+1485
+1486  De Marco and Lister's Peopleware: Productive Projects and Teams (New York; Dorset House, 1987; ISBN
+1487  0-932633-05-6) is an underappreciated gem which I was delighted to see Fred Brooks cite in his
+1488  retrospective. While little of what the authors have to say is directly applicable to the Linux or
+1489  open-source communities, the authors' insight into the conditions necessary for creative work is
+1490  acute and worthwhile for anyone attempting to import some of the bazaar model's virtues into a
+1491  commercial context.
+1492
+1493  Finally, I must admit that I very nearly called this essay "The Cathedral and the Agora", the latter
+1494  term being the Greek for an open market or public meeting place. The seminal "agoric systems" papers
+1495  by Mark Miller and Eric Drexler, by describing the emergent properties of market-like computational
+1496  ecologies, helped prepare me to think clearly about analogous phenomena in the open-source culture
+1497  when Linux rubbed my nose in them five years later. These papers are available on the Web at
+1498  http://www.agorics.com/agorpapers.html.
 1499
 1500  = Acknowledgements =
-1501
-1502  This essay was improved by conversations with a large number of people who helped debug it.
-1503  Particular thanks to Jeff Dutky <dutky@wam.umd.edu>, who suggested the "debugging is parallelizable"
-1504  formulation, and helped develop the analysis that proceeds from it. Also to Nancy Lebovitz
-1505  <nancyl@universe.digex.net> for her suggestion that I emulate Weinberg by quoting Kropotkin.
-1506  Perceptive criticisms also came from Joan Eslinger <wombat@kilimanjaro.engr.sgi.com> and Marty Franz
-1507  <marty@net-link.net> of the General Technics list. Glen Vandenburg <glv@vanderburg.org> pointeed out
-1508  the importance of self-selection in contributor populations and suggested the fruitful idea that
-1509  much development rectifies 'bugs of omission'; Daniel Upper <upper@peak.org> suggested the natural
-1510  analogies for this. I'm grateful to the members of PLUG, the Philadelphia Linux User's group, for
-1511  providing the first test audience for the first public version of this essay.  Paula Matuszek
-1512  <matusp00@mh.us.sbphrd.com> enlightened me about the practice of software management. Phil Hudson
-1513  <phil.hudson@iname.com> reminded me that the social organization of the hacker culture mirrors the
-1514  organization of its software, and vice-versa. John Buck <johnbuck@sea.ece.umassd.edu> pointed out
-1515  that MATLAB makes an instructive parallel to Emacs. Russell Johnston <russjj@mail.com> brought me to
-1516  consciousness about some of the mechanisms discussed in "How Many Eyeballs Tame Complexity."
-1517  Finally, Linus Torvalds's comments were helpful and his early endorsement very encouraging.
