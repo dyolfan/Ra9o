@@ -11,7 +11,7 @@ public class Zodiac {
 	 */
 	public static String getZodiac(int day, int month) {
 		String zodiac = null;
-		// TODO #1: Implement method which return zodiac sign names
+		// #1: Implement method which return zodiac sign names
 		// As method parameter - day and month;
 		// Look at wikipedia:
 		// https://en.wikipedia.org/wiki/Zodiac#Table_of_dates

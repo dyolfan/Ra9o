@@ -6,6 +6,8 @@ package jtm.extra01;
  * @author student IB
  * 
  */
+
+
 public class If_Switch {
 
 	public static final String SUNNY = "SUNNY";
@@ -37,6 +39,9 @@ public class If_Switch {
 	// TODO No. 1: Write instance variables that will handle the String value
 	// of weather and temperature
 	// and the Integer value of season.
+	String weather;
+	String temperature;
+	int season;
 
 	public If_Switch(String weather, String temperature) {
 
@@ -49,6 +54,15 @@ public class If_Switch {
 		// If the arguments were not filtered, make a code that will assign
 		// instance variable to a UNRECOGNISED value
 		// HINT: Use if-else.
+		if (weather.equalsIgnoreCase(COLD) && temperature.equalsIgnoreCase(SNOWY))
+			season = 1;
+		if (weather.equalsIgnoreCase(WARM) && temperature.equalsIgnoreCase(SNOWY))
+			season = 2;
+		if (weather.equalsIgnoreCase(HOT) && temperature.equalsIgnoreCase(SUNNY))
+			season = 3;
+		if (weather.equalsIgnoreCase(WARM) && temperature.equalsIgnoreCase(RAINY))
+			season = 4;
+		else season = 0;
 	}
 
 	/**
@@ -64,6 +78,13 @@ public class If_Switch {
 		// default
 		// value was chosen
 		// HINT: Use switch-case.
-		return "";
+		switch(season) {
+		case 1: return "WINTER";
+		case 2: return "SPRING";
+		case 3: return "SUMMER";
+		case 4: return "AUTUMN";
+		default: return "UNRECOGNISED";
+		}
+		
 	}
 }
