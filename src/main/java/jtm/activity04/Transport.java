@@ -17,21 +17,24 @@ public class Transport {
 	 */
 	
 	public Transport(String id, float consumption, int tankSize) {
-		super();
 		this.id = id;
 		this.consumption = consumption;
 		this.tankSize = tankSize;
 		this.fuelInTank = tankSize;
 	}
 	
-
+	public Transport(String id) {
+		this.id = id;
+	}
 
 	/*- #2
 	 * Select menu: Source — Generate getters and Setters...
 	 * and generate public getters for consumption, tankSize, id, and
 	 * fuelInTank fields
 	 */
-	
+
+
+
 	public String getId() {
 		return id;
 	}
@@ -88,7 +91,8 @@ public class Transport {
 	
 	@Override
 	public String toString() {
-		return String.format("Id:%s cons:%.1fl/100km, tank:%dl, fuel:%.2fl", this.id, this.consumption, this.tankSize, this.fuelInTank);
+		return String.format("Id:%s cons:%.1fl/100km, tank:%dl, fuel:%.2fl",
+				this.id, this.consumption, this.tankSize, this.fuelInTank);
 	}
 
 	// Return transport id and type as string e.g. "AAA Transport"
@@ -118,7 +122,8 @@ public class Transport {
 	// "Cannot move on From–To, 180km. Necessary
 	// fuel:0.00l, fuel in tank:0.00l"
 	
-		else return String.format("Cannot move on %s. Necessary fuel:%.2fl, fuel in tank:%.2fl", road.toString(), road.getDistance()*this.getConsumption()/100, this.getFuelInTank());
+		else return String.format("Cannot move on %s. Necessary fuel:%.2fl, fuel in tank:%.2fl",
+				road.toString(), this.getNececeryFuel(road), this.getFuelInTank());
 	}
 	
 	public float getNececeryFuel(Road road) {
