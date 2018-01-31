@@ -15,7 +15,6 @@ public class Ship extends Transport {
 		super(id);
 		this.numberOfSails = sails;
 	}
-	
 
 	@Override
 	public String move(Road road) {
@@ -25,7 +24,7 @@ public class Ship extends Transport {
 		else return String.format("Cannot sail on %s",
 								road.toString());
 	}
-
+	
 	/**
 	 * @param args
 	 */

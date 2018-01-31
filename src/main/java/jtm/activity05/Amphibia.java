@@ -14,14 +14,18 @@ public class Amphibia extends Transport {
 		vehicle = new Vehicle(id, consumption, tankSize, wheels);
 	}
 	
+	
 	public String move(Road road) {
 		if(road instanceof WaterRoad){
 			return String.format("%s is sailing on %s with %d sails",
 					this.getType(), road.toString(), ship.numberOfSails);
 		} else {
-			this.setFuelInTank(this.getFuelInTank() - this.getNececeryFuel(road));
-			return String.format("%s is driving on %s with %d wheels",
+			if(getNececeryFuel(road) <= this.getFuelInTank()){
+				this.setFuelInTank(this.getFuelInTank() - this.getNececeryFuel(road));
+				return String.format("%s is driving on %s with %d wheels",
 				this.getType(), road.toString(), vehicle.numberOfWheels);
+			} else return String.format("Cannot move on %s. Necessary fuel:%.2fl, fuel in tank:%.2fl",
+					road.toString(), this.getNececeryFuel(road), this.getFuelInTank());
 		}
 	}
 	
