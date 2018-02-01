@@ -49,10 +49,13 @@ public class StringTokenizerExercise {
 		// Advice: Explore StringTokenizer or String split options.
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(filepath));
-			String line = null;
-			while ((line = br.readLine()) != null) {
-				///
-			}
+			String line= "";
+			 while ((line = br.readLine()) != null) {
+				 String[] temp;
+				 temp = splitString(line, delimiter);
+				 Student tempStudent = new Student(Integer.parseInt(temp[0]),temp[1], temp[2], Integer.parseInt(temp[3]));
+				 list.add(tempStudent);
+	        }
 		} catch (FileNotFoundException e) {
 			System.out.print("File Not Found");
 			e.printStackTrace();
