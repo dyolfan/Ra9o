@@ -15,6 +15,7 @@ public class Dog extends Mammal {
 		if (name == name.toLowerCase())
 			this.name = "";
 	}
+	
 	public String getName(){
 		return this.name;
 	}
