@@ -8,9 +8,24 @@ public enum Holiday {
 	NEW_YEAR(1, 1), WOMAN_DAY(3, 8), CHUCK_NORRIS_BIRTHSDAY(3, 10), FOOLS_DAY9(4, 1), WORLD_END(12, 21);
 	int month;
 	int day;
+	
+	public class Date {
+		int day = 0;
+		int month = 0;
+		
+		public void setDay(int d) {
+			this.day = d;
+		}
+		
+		public void setMonth(int m) {
+			this.month = m;
+		}
+	}
 
 	Holiday(int month, int day) {
-		// TODO #1 implement class variables for month and day of the holiday
+		// #1 implement class variables for month and day of the holiday
+		this.month = month;
+		this.day = day;
 	}
 
 	public static Holiday getNearest(int currentMonth, int currentDay) {
@@ -20,6 +35,40 @@ public enum Holiday {
 		// are
 		// no more holidays this year, first holiday in the list will be the
 		// next.
+//		
+//		Date upperDate = null;
+//		Date lowerDate = null;
+//		
+//		upperDate.day = 0;
+//		upperDate.month = 0;
+//		lowerDate.day = 0;
+//		lowerDate.month = 0;
+//		
+//		Holiday[] holidays = { NEW_YEAR, WOMAN_DAY, CHUCK_NORRIS_BIRTHSDAY, FOOLS_DAY9, WORLD_END };
+//		
+//
+//		do {
+//			for (Holiday j : holidays) {
+//				if (j.getMonth() == currentMonth) 
+//					upperDate.setDay(j.getDay());
+//					upperDate.setMonth(j.getMonth());
+//			}
+//		} while (upperDate.month == 0);
+//		
+//			for (int i = 4; i >=0; i-- ) {
+//				if (holidays[i].getMonth() == currentMonth) 
+//					lowerDate.setDay(holidays[i].getDay());
+//					lowerDate.setMonth(holidays[i].getMonth());
+//			}
+//		
+//		int dayDifferenceUpper = Math.abs(currentDay - upperDate.day);
+//		int dayDifferenceLower = Math.abs(currentDay - lowerDate.day);
+//		int monthDifferenceUpper = null;
+//		if(upperDate.day - currentDay == 0) {
+//			monthDifference = 
+//		}
+//		
+		
 		return returnHoliday;
 	}
 
@@ -29,5 +78,9 @@ public enum Holiday {
 
 	public int getDay() {
 		return day;
+	}
+	
+	public static void main(String... args) {
+		
 	}
 }
