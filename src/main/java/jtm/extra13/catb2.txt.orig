@@ -1,8 +1,5 @@
 74    = The Mail Must Get Through =
 75
-<<<<<<< HEAD
-
-=======
 76    Since 1993 I'd been running the technical side of a small free-access Internet service provider
 77    called Chester County InterLink (CCIL) in West Chester, Pennsylvania. I co-founded CCIL and wrote
 78    our unique multiuser bulletin-board software—you can check it out by telnetting to locke.ccil.org.
@@ -20,7 +17,6 @@
 90    such things existed, and that most of them used a simple application protocol called POP (Post
 91    Office Protocol). POP is now widely supported by most common mail clients, but at the time, it
 92    wasn't built in to the mail reader I was using.
->>>>>>> branch1
 93
 94    I needed a POP3 client. So I went out on the Internet and found one. Actually, I found three or
 95    four. I used one of them for a while, but it was missing what seemed an obvious feature, the ability
@@ -80,7 +76,6 @@
 149   Stay or switch? If I switched, I'd be throwing away the coding I'd already done in exchange for a
 150   better development base.
 151
-
 173
 174   Without my actually noticing, the project had escalated. No longer was I just contemplating minor
 175   patches to an existing POP client. I took on maintaining an entire one, and there were ideas

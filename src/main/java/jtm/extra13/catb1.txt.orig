@@ -19,7 +19,6 @@
 19
 20    Date: 2002/08/02 09:02:14
 21
-<<<<<<< HEAD
 22    = Abstract =
 23
 24    I anatomize a successful open-source project, fetchmail, that was run as a deliberate test of the
@@ -32,7 +31,6 @@
 31    agents, and conclude with some exploration of the implications of this insight for the future of
 32    software.
 33
-=======
 33
 34    = The Cathedral and the Bazaar =
 35
@@ -60,6 +58,5 @@
 57    coherent and stable system could seemingly emerge only by a succession of miracles.
 58
 59
->>>>>>> branch1
 73
 74    = The Mail Must Get Through =

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 648   = Fetchmail Grows Up =
 649
 650   There I was with a neat and innovative design, code that I knew worked well because I used it every
@@ -121,8 +120,6 @@
 767       17. A security system is only as secure as its secret. Beware of pseudo-secrets.
 768
 769
-770   = Necessary Preconditions for the Bazaar Style =
-=======
 770   = Necessary Preconditions for the Bazaar Style =
 771
 772   Early reviewers and test audiences for this essay consistently raised questions about the
@@ -341,4 +338,189 @@
 985   open-source communities that can put orders of magnitude more skilled time into a problem.
 986
 987   = On Management and the Maginot Line =
->>>>>>> branch1
+988
+989   The original Cathedral and Bazaar paper of 1997 ended with the vision above—that of happy networked
+990   hordes of programmer/anarchists outcompeting and overwhelming the hierarchical world of conventional
+991   closed software.
+992
+993   A good many skeptics weren't convinced, however; and the questions they raise deserve a fair
+994   engagement. Most of the objections to the bazaar argument come down to the claim that its proponents
+995   have underestimated the productivity-multiplying effect of conventional management.
+996
+997   Traditionally-minded software-development managers often object that the casualness with which
+998   project groups form and change and dissolve in the open-source world negates a significant part of
+999   the apparent advantage of numbers that the open-source community has over any single closed-source
+1000  developer. They would observe that in software development it is really sustained effort over time
+1001  and the degree to which customers can expect continuing investment in the product that matters, not
+1002  just how many people have thrown a bone in the pot and left it to simmer.
+1003
+1004  There is something to this argument, to be sure; in fact, I have developed the idea that expected
+1005  future service value is the key to the economics of software production in the essay The Magic
+1006  Cauldron.
+1007
+1008  But this argument also has a major hidden problem; its implicit assumption that open-source
+1009  development cannot deliver such sustained effort. In fact, there have been open-source projects that
+1010  maintained a coherent direction and an effective maintainer community over quite long periods of
+1011  time without the kinds of incentive structures or institutional controls that conventional
+1012  management finds essential. The development of the GNU Emacs editor is an extreme and instructive
+1013  example; it has absorbed the efforts of hundreds of contributors over 15 years into a unified
+1014  architectural vision, despite high turnover and the fact that only one person (its author) has been
+1015  continuously active during all that time. No closed-source editor has ever matched this longevity
+1016  record.
+1017
+1018  This suggests a reason for questioning the advantages of conventionally-managed software development
+1019  that is independent of the rest of the arguments over cathedral vs. bazaar mode. If it's possible
+1020  for GNU Emacs to express a consistent architectural vision over 15 years, or for an operating system
+1021  like Linux to do the same over 8 years of rapidly changing hardware and platform technology; and if
+1022  (as is indeed the case) there have been many well-architected open-source projects of more than 5
+1023  years duration -- then we are entitled to wonder what, if anything, the tremendous overhead of
+1024  conventionally-managed development is actually buying us.
+1025
+1026  Whatever it is certainly doesn't include reliable execution by deadline, or on budget, or to all
+1027  features of the specification; it's a rare 'managed' project that meets even one of these goals, let
+1028  alone all three. It also does not appear to be ability to adapt to changes in technology and
+1029  economic context during the project lifetime, either; the open-source community has proven far more
+1030  effective on that score (as one can readily verify, for example, by comparing the 30-year history of
+1031  the Internet with the short half-lives of proprietary networking technologies—or the cost of the
+1032  16-bit to 32-bit transition in Microsoft Windows with the nearly effortless upward migration of
+1033  Linux during the same period, not only along the Intel line of development but to more than a dozen
+1034  other hardware platforms, including the 64-bit Alpha as well).
+1035
+1036  One thing many people think the traditional mode buys you is somebody to hold legally liable and
+1037  potentially recover compensation from if the project goes wrong. But this is an illusion; most
+1038  software licenses are written to disclaim even warranty of merchantability, let alone
+1039  performance—and cases of successful recovery for software nonperformance are vanishingly rare. Even
+1040  if they were common, feeling comforted by having somebody to sue would be missing the point. You
+1041  didn't want to be in a lawsuit; you wanted working software.
+1042
+1043  So what is all that management overhead buying?
+1044
+1045  In order to understand that, we need to understand what software development managers believe they
+1046  do. A woman I know who seems to be very good at this job says software project management has five
+1047  functions:
+1048
+1049      * To define goals and keep everybody pointed in the same direction
+1050
+1051      * To monitor and make sure crucial details don't get skipped
+1052
+1053      * To motivate people to do boring but necessary drudgework
+1054
+1055      * To organize the deployment of people for best productivity
+1056
+1057      * To marshal resources needed to sustain the project
+1058
+1059  Apparently worthy goals, all of these; but under the open-source model, and in its surrounding
+1060  social context, they can begin to seem strangely irrelevant. We'll take them in reverse order.
+1061
+1062  My friend reports that a lot of resource marshalling is basically defensive; once you have your
+1063  people and machines and office space, you have to defend them from peer managers competing for the
+1064  same resources, and from higher-ups trying to allocate the most efficient use of a limited pool.
+1065
+1066  But open-source developers are volunteers, self-selected for both interest and ability to contribute
+1067  to the projects they work on (and this remains generally true even when they are being paid a salary
+1068  to hack open source.) The volunteer ethos tends to take care of the 'attack' side of
+1069  resource-marshalling automatically; people bring their own resources to the table. And there is
+1070  little or no need for a manager to 'play defense' in the conventional sense.
+1071
+1072  Anyway, in a world of cheap PCs and fast Internet links, we find pretty consistently that the only
+1073  really limiting resource is skilled attention. Open-source projects, when they founder, essentially
+1074  never do so for want of machines or links or office space; they die only when the developers
+1075  themselves lose interest.
+1076
+1077  That being the case, it's doubly important that open-source hackers organize themselves for maximum
+1078  productivity by self-selection—and the social milieu selects ruthlessly for competence. My friend,
+1079  familiar with both the open-source world and large closed projects, believes that open source has
+1080  been successful partly because its culture only accepts the most talented 5% or so of the
+1081  programming population. She spends most of her time organizing the deployment of the other 95%, and
+1082  has thus observed first-hand the well-known variance of a factor of one hundred in productivity
+1083  between the most able programmers and the merely competent.
+1084
+1085  The size of that variance has always raised an awkward question: would individual projects, and the
+1086  field as a whole, be better off without more than 50% of the least able in it? Thoughtful managers
+1087  have understood for a long time that if conventional software management's only function were to
+1088  convert the least able from a net loss to a marginal win, the game might not be worth the candle.
+1089
+1090  The success of the open-source community sharpens this question considerably, by providing hard
+1091  evidence that it is often cheaper and more effective to recruit self-selected volunteers from the
+1092  Internet than it is to manage buildings full of people who would rather be doing something else.
+1093
+1094  Which brings us neatly to the question of motivation. An equivalent and often-heard way to state my
+1095  friend's point is that traditional development management is a necessary compensation for poorly
+1096  motivated programmers who would not otherwise turn out good work.
+1097
+1098  This answer usually travels with a claim that the open-source community can only be relied on only
+1099  to do work that is 'sexy' or technically sweet; anything else will be left undone (or done only
+1100  poorly) unless it's churned out by money-motivated cubicle peons with managers cracking whips over
+1101  them. I address the psychological and social reasons for being skeptical of this claim in
+1102  Homesteading the Noosphere. For present purposes, however, I think it's more interesting to point
+1103  out the implications of accepting it as true.
+1104
+1105  If the conventional, closed-source, heavily-managed style of software development is really defended
+1106  only by a sort of Maginot Line of problems conducive to boredom, then it's going to remain viable in
+1107  each individual application area for only so long as nobody finds those problems really interesting
+1108  and nobody else finds any way to route around them.  Because the moment there is open-source
+1109  competition for a 'boring' piece of software, customers are going to know that it was finally
+1110  tackled by someone who chose that problem to solve because of a fascination with the problem
+1111  itself—which, in software as in other kinds of creative work, is a far more effective motivator than
+1112  money alone.
+1113
+1114  Having a conventional management structure solely in order to motivate, then, is probably good
+1115  tactics but bad strategy; a short-term win, but in the longer term a surer loss.
+1116
+1117  So far, conventional development management looks like a bad bet now against open source on two
+1118  points (resource marshalling, organization), and like it's living on borrowed time with respect to a
+1119  third (motivation). And the poor beleaguered conventional manager is not going to get any succour
+1120  from the monitoring issue; the strongest argument the open-source community has is that
+1121  decentralized peer review trumps all the conventional methods for trying to ensure that details
+1122  don't get slipped.
+1123
+1124  Can we save defining goals as a justification for the overhead of conventional software project
+1125  management? Perhaps; but to do so, we'll need good reason to believe that management committees and
+1126  corporate roadmaps are more successful at defining worthy and widely shared goals than the project
+1127  leaders and tribal elders who fill the analogous role in the open-source world.
+1128
+1129  That is on the face of it a pretty hard case to make. And it's not so much the open-source side of
+1130  the balance (the longevity of Emacs, or Linus Torvalds's ability to mobilize hordes of developers
+1131  with talk of "world domination") that makes it tough. Rather, it's the demonstrated awfulness of
+1132  conventional mechanisms for defining the goals of software projects.
+1133
+1134  One of the best-known folk theorems of software engineering is that 60% to 75% of conventional
+1135  software projects either are never completed or are rejected by their intended users. If that range
+1136  is anywhere near true (and I've never met a manager of any experience who disputes it) then more
+1137  projects than not are being aimed at goals that are either (a) not realistically attainable, or (b)
+1138  just plain wrong.
+1139
+1140  This, more than any other problem, is the reason that in today's software engineering world the very
+1141  phrase "management committee" is likely to send chills down the hearer's spine—even (or perhaps
+1142  especially) if the hearer is a manager. The days when only programmers griped about this pattern are
+1143  long past; Dilbert cartoons hang over executives' desks now.
+1144
+1145  Our reply, then, to the traditional software development manager, is simple—if the open-source
+1146  community has really underestimated the value of conventional management, why do so many of you
+1147  display contempt for your own process?
+1148
+1149  Once again the example of the open-source community sharpens this question considerably—because we
+1150  have fun doing what we do. Our creative play has been racking up technical, market-share, and
+1151  mind-share successes at an astounding rate.  We're proving not only that we can do better software,
+1152  but that joy is an asset.
+1153
+1154  Two and a half years after the first version of this essay, the most radical thought I can offer to
+1155  close with is no longer a vision of an open-source–dominated software world; that, after all, looks
+1156  plausible to a lot of sober people in suits these days.
+1157
+1158  Rather, I want to suggest what may be a wider lesson about software, (and probably about every kind
+1159  of creative or professional work). Human beings generally take pleasure in a task when it falls in a
+1160  sort of optimal-challenge zone; not so easy as to be boring, not too hard to achieve. A happy
+1161  programmer is one who is neither underutilized nor weighed down with ill-formulated goals and
+1162  stressful process friction. Enjoyment predicts efficiency.
+1163
+1164  Relating to your own work process with fear and loathing (even in the displaced, ironic way
+1165  suggested by hanging up Dilbert cartoons) should therefore be regarded in itself as a sign that the
+1166  process has failed. Joy, humor, and playfulness are indeed assets; it was not mainly for the
+1167  alliteration that I wrote of "happy hordes" above, and it is no mere joke that the Linux mascot is a
+1168  cuddly, neotenous penguin.
+1169
+1170  It may well turn out that one of the most important effects of open source's success will be to
+1171  teach us that play is the most economically efficient mode of creative work.
+1172
+1173  = Epilog: Netscape Embraces the Bazaar =
