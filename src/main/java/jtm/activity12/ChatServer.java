@@ -1,5 +1,6 @@
 package jtm.activity12;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -37,7 +38,7 @@ public class ChatServer implements Runnable {
 		while (true) {
 			// TODO 1. Try to initialize client Socket in infinite loop with
 			// server.accept() method
-			// TODO 2. handle exceptions
+				// TODO 2. handle exceptions
 			// TODO 3. if socket is initialized successfully, create new Thread
 			// passing new ChatServer(socket) as a parameter for it.
 			// Then invoke start() method for this thread

@@ -1,5 +1,7 @@
 package jtm.activity04;
 
+import java.util.Locale;
+
 public class Transport {
 	// Do not change access modifiers to encapsulate internal properties!
 	private String id; // Transport registration number

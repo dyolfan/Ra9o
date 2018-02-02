@@ -1,5 +1,7 @@
 package jtm.activity09;
 
+import java.util.ArrayList;
+
 /*- TODO #2
  * Implement Iterator interface with OrderList class
  * Hint! Use generic type argument of iterateable items in form: Iterator<Order>

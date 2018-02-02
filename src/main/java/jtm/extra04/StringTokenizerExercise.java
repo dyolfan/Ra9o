@@ -38,6 +38,7 @@ public class StringTokenizerExercise {
 	public List<Student> createFromFile(String filepath, String delimiter) {
 		File students = new File(filepath);
 		List<Student> list = new ArrayList<Student>();
+		BufferedReader in = null;
 		// TODO # 3 Implement method which reads data from file and creates
 		// Student objects with that data. Each line from file contains data for
 		// 1 Student object.

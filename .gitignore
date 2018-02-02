@@ -1,0 +1,12 @@
+**/*.db
+**/TODO.html
+bin/**
+jacoco.exec
+doc/style.css
+logs/**
+.classpath
+.project
+.settings/**
+target/**
+tools/JTM.jar
+**/.~lock*

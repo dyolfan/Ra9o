@@ -1,0 +1,10 @@
+package jtm.extra07;
+
+<<<<<<< HEAD
+=======
+import jtm.extra07.ChatClientTest;
+
+>>>>>>> branch1
+public class ChatClientTest1 extends ChatClientTest {
+
+}

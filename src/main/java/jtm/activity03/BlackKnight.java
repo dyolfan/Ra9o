@@ -80,7 +80,7 @@ public class BlackKnight {
 	}
 
 	public String cutOffHead() {
-		// handle cutting off knight's head in following way:
+		// TODO handle cutting off knight's head in following way:
 		// If knight is dead, return "Only chicken beats dead!"
 		// If knight is alive and has head, cut it off and update
 		// number of total alive and dead knights and then

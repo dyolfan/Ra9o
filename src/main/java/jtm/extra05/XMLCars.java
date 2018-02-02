@@ -10,6 +10,7 @@ public class XMLCars {
 	 * Declare static variables to remember previously generated structure of XML
 	 */
 
+
 	public void addCar(int id, String model, String color, int year, float price, String notes) throws Exception {
 		// TODO #3
 		/*- Implement method which adds new car elements into XML structure.
@@ -27,6 +28,7 @@ public class XMLCars {
 		 *   Look at https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/DocumentBuilder.html and
 		 *           https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/package-summary.html
 		 */
+
 
 	}
 

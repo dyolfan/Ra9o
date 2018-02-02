@@ -1,6 +1,22 @@
 74    = The Mail Must Get Through =
 75
-
+76    Since 1993 I'd been running the technical side of a small free-access Internet service provider
+77    called Chester County InterLink (CCIL) in West Chester, Pennsylvania. I co-founded CCIL and wrote
+78    our unique multiuser bulletin-board software—you can check it out by telnetting to locke.ccil.org.
+79    Today it supports almost three thousand users on thirty lines. The job allowed me 24-hour-a-day
+80    access to the net through CCIL's 56K line—in fact, the job practically demanded it!
+81
+82    I had gotten quite used to instant Internet email. I found having to periodically telnet over to
+83    locke to check my mail annoying. What I wanted was for my mail to be delivered on snark (my home
+84    system) so that I would be notified when it arrived and could handle it using all my local tools.
+85
+86    The Internet's native mail forwarding protocol, SMTP (Simple Mail Transfer Protocol), wouldn't suit,
+87    because it works best when machines are connected full-time, while my personal machine isn't always
+88    on the Internet, and doesn't have a static IP address. What I needed was a program that would reach
+89    out over my intermittent dialup connection and pull across my mail to be delivered locally. I knew
+90    such things existed, and that most of them used a simple application protocol called POP (Post
+91    Office Protocol). POP is now widely supported by most common mail clients, but at the time, it
+92    wasn't built in to the mail reader I was using.
 93
 94    I needed a POP3 client. So I went out on the Internet and found one. Actually, I found three or
 95    four. I used one of them for a while, but it was missing what seemed an obvious feature, the ability

@@ -1,0 +1,138 @@
+package jtm.activity13;
+
+import java.sql.Connection;
+<<<<<<< HEAD
+=======
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+>>>>>>> branch1
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TeacherManager {
+
+	protected Connection conn;
+
+	public TeacherManager() {
+		// TODO #1 When new TeacherManager is created, create connection to the
+		// database server:
+		// url = "jdbc:mysql://localhost/?autoReconnect=true&useSSL=false"
+		// user = "root"
+		// pass = "abcd1234"
+		// Hints:
+		// 1. Do not pass database name into url, because some statements
+		// for tests need to be executed server-wise, not just database-wise.
+		// 2. Set AutoCommit to false and use conn.commit() where necessary in
+		// other methods
+	}
+
+	/**
+	 * Returns a Teacher instance represented by the specified ID.
+	 * 
+	 * @param id
+	 *            the ID of teacher
+	 * @return a Teacher object
+	 * @throws SQLException
+	 */
+	public Teacher findTeacher(int id) throws SQLException {
+		// TODO #2 Write an sql statement that searches teacher by ID.
+		// If teacher is not found return Teacher object with zero or null in
+		// its fields!
+		// Hint: Because default database is not set in connection,
+		// use full notation for table "database_activity.Teacher"
+		return null;
+	}
+
+	/**
+	 * Returns a list of Teacher object that contain the specified first name
+	 * and last name. This will return an empty List of no match is found.
+	 * 
+	 * @param firstName
+	 *            the first name of teacher.
+	 * @param lastName
+	 *            the last name of teacher.
+	 * @return a list of Teacher object.
+	 */
+	public List<Teacher> findTeacher(String firstName, String lastName) throws Exception {
+		List<Teacher> results = new ArrayList<Teacher>();
+		// TODO #3 Write an sql statement that searches teacher by first and
+		// last name and returns results as ArrayList<Teacher>.
+		// Note that search results of partial match
+		// in form ...like '%value%'... should be returned
+		// If nothing is found, return empty list!
+		return null;
+
+	}
+
+	/**
+	 * This method will attempt to insert an new teacher (first name and last
+	 * name) into the repository.
+	 * 
+	 * @param firstName
+	 *            the first name of teacher
+	 * @param lastName
+	 *            the last name of teacher
+	 * @return true if insert, else false.
+	 * @throws SQLException
+	 */
+
+	public boolean insertTeacher(String firstName, String lastName) throws SQLException {
+		// TODO #4 Write an sql statement that inserts teacher in database.
+		return false;
+	}
+
+	/**
+	 * This method will attempt to insert an teacher's (id, first name and last
+	 * name) into the repository.
+	 * 
+	 * @param id
+	 *            the ID of teacher
+	 * @param firstName
+	 *            the first name of teacher
+	 * @param lastName
+	 *            the last name of teacher
+	 * @return true if insert, else false.
+	 * @throws SQLException
+	 */
+	public boolean insertTeacherAll(int id, String firstName, String lastName) throws SQLException {
+		// TODO #5 Write an sql statement that inserts teacher in database.
+		return false;
+	}
+
+	/**
+	 * Updates an existing Teacher in the repository with the values represented
+	 * by the Teacher object.
+	 * 
+	 * @param teacher
+	 *            a Teacher object, which contain information for updating.
+	 * @return true if row was updated.
+	 * @throws SQLException
+	 */
+	public boolean updateTeacher(Teacher teacher) throws SQLException {
+		boolean status = false;
+		// TODO #6 Write an sql statement that updates teacher information.
+		return false;
+	}
+
+	/**
+	 * Delete an existing Teacher in the repository with the values represented
+	 * by the ID.
+	 * 
+	 * @param id
+	 *            the ID of teacher.
+	 * @return true if row was deleted.
+	 * @throws SQLException
+	 */
+	public boolean deleteTeacher(int id) throws SQLException {
+		boolean status = false;
+		// TODO #7 Write an sql statement that deletes teacher from database.
+		return false;
+	}
+
+	public void closeConnecion() {
+		// TODO Close connection if and reset it to release connection to the
+		// database server
+	}
+}
