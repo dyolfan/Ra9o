@@ -1,7 +1,5 @@
 package jtm.extra09;
 
-import java.util.ArrayList;
-
 public class GameFactory {
 
 	/**

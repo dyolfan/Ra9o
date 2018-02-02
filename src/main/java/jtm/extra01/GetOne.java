@@ -14,9 +14,10 @@ public class GetOne {
 		// HINT: Use while loop.
 		int iterationCount = 0;
 		while (number != 1) {
-			if (number%2 == 0)
+			if (number % 2 == 0)
 				number /= 2;
-			else  number = number*3 +1;
+			else
+				number = number * 3 + 1;
 			iterationCount++;
 		}
 		return iterationCount;
@@ -33,7 +34,7 @@ public class GetOne {
 		int biggestIteration = 0;
 		int number = 1;
 		for (int i = 1; i <= maxNumber; i++) {
-			if(iterations(i) > biggestIteration){
+			if (iterations(i) > biggestIteration) {
 				number = i;
 				biggestIteration = iterations(i);
 			}

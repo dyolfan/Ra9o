@@ -10,7 +10,7 @@ public class Road {
 	 * and create constructor which sets from, to and distance
 	 * values of the newly created object
 	 */
-	
+
 	public Road(String from, String to, int distance) {
 		super();
 		this.from = from;
@@ -22,6 +22,7 @@ public class Road {
 	 * Create constructor without parameters, which sets empty
 	 * values or 0 to all object properties
 	 */
+
 	public Road() {
 		this.from = "";
 		this.to = "";
@@ -57,7 +58,6 @@ public class Road {
 	public void setDistance(int distance) {
 		this.distance = distance;
 	}
-	
 
 	/*- #4
 	 * Select menu: Source — Generate toString()...
@@ -69,8 +69,7 @@ public class Road {
 
 	@Override
 	public String toString() {
-		return getFrom() + " — " + getTo()
-				+ ", " + getDistance() +"km";
+		return getFrom() + " — " + getTo() + ", " + getDistance() + "km";
 	}
 
 }

@@ -1,17 +1,14 @@
 package jtm.activity06;
 
-import java.lang.Object;
-import java.lang.Cloneable;
-
-public class Martian implements Alien, Humanoid, Cloneable{
+public class Martian implements Alien, Humanoid, Cloneable {
 	public int weight;
 	public Object backpack;
 	public final boolean IS_ALIVE = true;
-	
+
 	public Martian(int weigth) {
 		this.weight = weigth;
 	}
-	
+
 	@Override
 	public String killHimself() {
 		return "I AM IMMORTAL!";
@@ -39,9 +36,9 @@ public class Martian implements Alien, Humanoid, Cloneable{
 
 	@Override
 	public void eatHuman(Humanoid humanoid) {
-		if (humanoid.isAlive() == "Alive"){
-		humanoid.killHimself();
-		this.weight = this.weight + humanoid.getWeight();
+		if (humanoid.isAlive() == "Alive") {
+			humanoid.killHimself();
+			this.weight = this.weight + humanoid.getWeight();
 		}
 	}
 
@@ -57,9 +54,10 @@ public class Martian implements Alien, Humanoid, Cloneable{
 
 	@Override
 	public void setBackpack(Object item) {
-		if (item == this){
-			
-		} else this.backpack = item;
+		if (item == this) {
+
+		} else
+			this.backpack = item;
 	}
 
 	@Override
@@ -70,7 +68,7 @@ public class Martian implements Alien, Humanoid, Cloneable{
 	public Object clone() throws java.lang.CloneNotSupportedException {
 		return clone(this);
 	}
-	
+
 	@Override
 	public Object clone(Object object) {
 		if (object == null)
@@ -78,26 +76,27 @@ public class Martian implements Alien, Humanoid, Cloneable{
 		if (object.getClass() == Object.class)
 			return new Object();
 		if (object instanceof String) {
-			return new String ((String) object);
+			return new String((String) object);
 		}
 		if (object instanceof Human) {
 			Human realHuman = (Human) object;
-			Human copyHuman = new Human (realHuman.getWeight());
+			Human copyHuman = new Human(realHuman.getWeight());
 			copyHuman.setBackpack(realHuman.getBackpack());
 			return copyHuman;
 		}
 		if (object instanceof Martian) {
 			Martian realMartian = (Martian) object;
-			Martian copyMartian = new Martian (realMartian.getWeight());
+			Martian copyMartian = new Martian(realMartian.getWeight());
 			copyMartian.setBackpack(realMartian.getBackpack());
 			return copyMartian;
-		}
-		else return null;
+		} else
+			return null;
 	}
 
 	@Override
 	public String toString() {
 		String type = this.getClass().getSimpleName();
-		return type + " " + this.weight + " [" + this.getBackpack() + "]"; 
+		return type + " " + this.weight + " [" + this.getBackpack() + "]";
 	}
+	
 }

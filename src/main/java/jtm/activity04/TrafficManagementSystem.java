@@ -10,6 +10,7 @@ public class TrafficManagementSystem {
 	 * @param roads
 	 * @param transport
 	 */
+
 	public static void initSystem(int roads, int transport) {
 		addRoads(roads);
 		addTransport(transport);
@@ -26,22 +27,22 @@ public class TrafficManagementSystem {
 	}
 
 	public static void setVehicle(Transport transport, int i) {
-		//set passed transport into transports array cell of passed index
+		// set passed transport into transports array cell of passed index
 		transports[i] = transport;
 	}
 
 	public static void addRoads(int i) {
-		//create new array of roads in size of passed value
+		// create new array of roads in size of passed value
 		roads = new Road[i];
 	}
 
 	public static Road[] getRoads() {
-		//  return required value
+		// return required value
 		return roads;
 	}
 
 	public static void setRoad(Road road, int i) {
-		//set passed road into passed cell of roads array
+		// set passed road into passed cell of roads array
 		roads[i] = road;
 	}
 

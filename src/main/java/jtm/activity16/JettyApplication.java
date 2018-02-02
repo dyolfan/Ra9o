@@ -1,10 +1,5 @@
 package jtm.activity16;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
 // TODO uncomment these annotations to notify to SpringBoot framework
 // that this class can be run as SpringBoot application
 // @Configuration

@@ -4,15 +4,15 @@ public class Human implements Humanoid, Cloneable {
 	public int weight;
 	public String backpack;
 	public boolean isAlive = true;
-	
-	public Human(){
+
+	public Human() {
 		weight = 42;
 	}
 
 	public Human(int weight) {
 		this.weight = weight;
 	}
-	
+
 	@Override
 	public int getWeight() {
 		return weight;
@@ -46,14 +46,16 @@ public class Human implements Humanoid, Cloneable {
 
 	@Override
 	public String isAlive() {
-		if(isAlive) 
+		if (isAlive)
 			return "Alive";
-		else return "Dead";
+		else
+			return "Dead";
 	}
 
 	@Override
 	public String toString() {
 		String type = this.getClass().getSimpleName();
-		return type + " " + this.weight + " [" + this.getBackpack() + "]"; 
+		return type + " " + this.weight + " [" + this.getBackpack() + "]";
 	}
+	
 }

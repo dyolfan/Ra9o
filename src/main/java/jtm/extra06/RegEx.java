@@ -1,8 +1,5 @@
 package jtm.extra06;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class RegEx {
 
 	/**
@@ -24,8 +21,8 @@ public class RegEx {
 	}
 
 	/**
-	 * This method finds Kenny or Kelly hiding in this list. "Kenny" or "Kelly" can be written with
-	 * arbitrary number of "n"s or "l"s starting with two.
+	 * This method finds Kenny or Kelly hiding in this list. "Kenny" or "Kelly"
+	 * can be written with arbitrary number of "n"s or "l"s starting with two.
 	 * 
 	 * @param input
 	 *            — input string

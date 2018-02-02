@@ -34,7 +34,8 @@ public class BlackKnight {
 		// 3. put reference of this knight into next free cell of knights static
 		// array
 		// 4. increase number of total and alive knights of static counters
-		// HINT: use "this.name" to access name of knight which otherwise is shadowed
+		// HINT: use "this.name" to access name of knight which otherwise is
+		// shadowed
 		// by parameter of constructor, which is also called "name"
 		this.name = name;
 		this.arms = 2;
@@ -47,18 +48,18 @@ public class BlackKnight {
 	}
 
 	public String cutOffArm() {
-		//  handle cutting off knight's arms in following way:
+		// handle cutting off knight's arms in following way:
 		// If knight is dead, return "Only chicken beats dead!"
 		// If knight has some arms, cut one off and return "Bugger!"
 		// Else return just "Haah!"
 		String message;
 		if (!alive)
 			message = "Only chicken beats dead!";
-		if(arms > 0) {
+		if (arms > 0) {
 			arms--;
 			message = "Bugger!";
-		}
-		else message = "Haah!";
+		} else
+			message = "Haah!";
 		return message;
 	}
 
@@ -70,11 +71,11 @@ public class BlackKnight {
 		String message;
 		if (!alive)
 			message = "Only chicken beats dead!";
-		if(legs > 0) {
+		if (legs > 0) {
 			legs--;
 			message = "Bollocks!";
-		}
-		else message = "Haah!";
+		} else
+			message = "Haah!";
 		return message;
 	}
 
@@ -99,7 +100,7 @@ public class BlackKnight {
 			message += aliveKnightsNames();
 			message += " will still fight!";
 			if (aliveKnights == 0) {
-				message =  "You'l burn in hell forever!";
+				message = "You'l burn in hell forever!";
 			}
 		}
 		return message;
@@ -109,9 +110,10 @@ public class BlackKnight {
 		String names = "";
 		for (int i = 0; i < knights.length; i++) {
 			if (knights[i].alive) {
-				if (i == knights.length -1)
+				if (i == knights.length - 1)
 					names += knights[i].name;
-				else names+= knights[i].name + ", ";
+				else
+					names += knights[i].name + ", ";
 			}
 		}
 		return names;

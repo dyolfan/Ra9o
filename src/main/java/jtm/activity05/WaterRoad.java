@@ -11,20 +11,10 @@ public class WaterRoad extends Road {
 	public WaterRoad() {
 		super();
 	}
-	
-	
 
 	@Override
 	public String toString() {
-		return "WaterRoad " + getFrom() + " — " + getTo()
-				+ ", " + getDistance() +"km";
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-
+		return "WaterRoad " + getFrom() + " — " + getTo() + ", " + getDistance() + "km";
 	}
 
 }

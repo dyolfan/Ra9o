@@ -26,9 +26,9 @@ public class LetsRide {
 		// will be increased by 2 and so on until bus reaches route end.
 		// Note: Overall passenger count can't exceed seat count
 		passengersCount = passengersAtStart;
-		for(int i = 1; i <= busStopCount; i++){
-			passengersCount+=i;
-			if(passengersCount > seatsCount) {
+		for (int i = 1; i <= busStopCount; i++) {
+			passengersCount += i;
+			if (passengersCount > seatsCount) {
 				passengersCount = seatsCount;
 			}
 		}

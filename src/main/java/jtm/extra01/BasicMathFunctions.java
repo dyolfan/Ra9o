@@ -22,7 +22,7 @@ public class BasicMathFunctions {
 	public int addition(int aliceCandyCount, int maryCandyCount) {
 		// #1: Alice had some candies and Mary also had some candies.
 		// How many candies will Robert get if he will rob both girls?
-		return aliceCandyCount+maryCandyCount;
+		return aliceCandyCount + maryCandyCount;
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class BasicMathFunctions {
 	public int division(int moneyForTeeth, int reduction) {
 		// #4 Robert agreed to divide price per teeth by reduction
 		// factor. How much money will Robert earn now?
-		return moneyForTeeth/reduction;
+		return moneyForTeeth / reduction;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class BasicMathFunctions {
 		// brothers and himself. His brothers do not know, that not any amount
 		// can be divided equally, therefore Robert can hold remaining part
 		// to himself. How much will Robert hold to himself?
-		return income%parts;
+		return income % parts;
 	}
 
 	/**

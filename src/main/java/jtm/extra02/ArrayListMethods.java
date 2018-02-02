@@ -22,7 +22,7 @@ public class ArrayListMethods {
 		int sum = 0;
 		// #2: Count element sum of the list
 		for (int number : myList)
-			sum+= number;
+			sum += number;
 		return sum;
 	}
 }

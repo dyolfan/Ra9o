@@ -1,8 +1,6 @@
 package jtm.extra07;
 
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
@@ -20,24 +18,24 @@ public class ChatClient implements Runnable {
 		// add buffered reader to standard input
 		// add print writer to socket's stream
 
-			// TODO Use ChatClient constructor with server socket as a parameter
-			// for constructor of a new thread, to asynchronously read messages
-			// from the server. Then start this thread.
-			// HINT:
-			// If JUnit test fails with timeout, thats probably because it could not
-			// read data from client (or server, if client didn't send data) in
-			// timely manner.
+		// TODO Use ChatClient constructor with server socket as a parameter
+		// for constructor of a new thread, to asynchronously read messages
+		// from the server. Then start this thread.
+		// HINT:
+		// If JUnit test fails with timeout, thats probably because it could not
+		// read data from client (or server, if client didn't send data) in
+		// timely manner.
 
-			ChatClient sc; // reference to ChatClient for server message reader
-							// thread
+		ChatClient sc; // reference to ChatClient for server message reader
+						// thread
 
-			// TODO read messages from standard input and send them
-			// to server socket exit from loop and program, if exit or quit is
-			// entered
+		// TODO read messages from standard input and send them
+		// to server socket exit from loop and program, if exit or quit is
+		// entered
 
-			// TODO handle possible exceptions and exit with error status
+		// TODO handle possible exceptions and exit with error status
 
-			// TODO close all data streams
+		// TODO close all data streams
 	}
 
 	@Override

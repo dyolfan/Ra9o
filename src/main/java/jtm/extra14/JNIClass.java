@@ -10,11 +10,9 @@ public class JNIClass {
 	 * 3. public static native void printHello()
 	 */
 
-
 	/*- TODO #2
 	 * Implement public getter and setter for value
 	 */
-
 
 	// TODO #3 compile this class and generate C header file from it
 

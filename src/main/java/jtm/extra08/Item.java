@@ -1,10 +1,5 @@
 package jtm.extra08;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 //TODO Annotate class as an @Entity, to say that its instances can be stored in the database.
 public class Item {
 	// TODO Annotate id field as an @Id, to mark it as a primary key field.

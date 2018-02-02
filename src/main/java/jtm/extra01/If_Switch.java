@@ -7,7 +7,6 @@ package jtm.extra01;
  * 
  */
 
-
 public class If_Switch {
 
 	public static final String SUNNY = "SUNNY";
@@ -62,7 +61,8 @@ public class If_Switch {
 			season = 3;
 		if (weather.equalsIgnoreCase(WARM) && temperature.equalsIgnoreCase(RAINY))
 			season = 4;
-		else season = 0;
+		else
+			season = 0;
 	}
 
 	/**
@@ -78,13 +78,18 @@ public class If_Switch {
 		// default
 		// value was chosen
 		// HINT: Use switch-case.
-		switch(season) {
-		case 1: return "WINTER";
-		case 2: return "SPRING";
-		case 3: return "SUMMER";
-		case 4: return "AUTUMN";
-		default: return "UNRECOGNISED";
+		switch (season) {
+		case 1:
+			return "WINTER";
+		case 2:
+			return "SPRING";
+		case 3:
+			return "SUMMER";
+		case 4:
+			return "AUTUMN";
+		default:
+			return "UNRECOGNISED";
 		}
-		
+
 	}
 }

@@ -10,28 +10,14 @@ public class Vehicle extends Transport {
 		super(id, consumption, tankSize);
 		this.numberOfWheels = wheels;
 	}
-	
-	
-	
-	
+
 	@Override
 	public String move(Road road) {
-		if(road.getClass() == Road.class) {
+		if (road.getClass() == Road.class) {
 			this.setFuelInTank(this.getFuelInTank() - this.getNececeryFuel(road));
-			return String.format("%s is driving on %s with %d wheels",
-								this.getType(), road.toString(), numberOfWheels);
-		} else return "Cannot drive on " + road.toString();
-	}
-
-
-
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+			return String.format("%s is driving on %s with %d wheels", this.getType(), road.toString(), numberOfWheels);
+		} else
+			return "Cannot drive on " + road.toString();
 	}
 
 }
