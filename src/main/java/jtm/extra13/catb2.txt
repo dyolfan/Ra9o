@@ -1,6 +1,5 @@
 74    = The Mail Must Get Through =
 75
-
 93
 94    I needed a POP3 client. So I went out on the Internet and found one. Actually, I found three or
 95    four. I used one of them for a while, but it was missing what seemed an obvious feature, the ability
