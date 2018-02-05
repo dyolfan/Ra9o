@@ -2,9 +2,13 @@ package jtm.activity10;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+
+import jtm.extra04.Student;
 
 /*-
  * This is simple text stream editor. It reads text from file/standard input,
@@ -47,25 +51,53 @@ public class StreamEditor {
 
 		// TODO assign proper line separator for each OS
 		// Hint: use System.lineSeparator() method
-
-		/*- TODO Check number of passed parameters. If they are null or number of
+		
+		
+		
+		/*- Check number of passed parameters. If they are null or number of
 		 * them is not 4, write to standard error (System.err):
 		 * Please use parameters: [-]lineNo (TextToAdd/Replace|-) (inputFile|-) (outputFile|-)
 		 * and exit with System.exit(1); to pass error status of finished program.
 		 */
+		
 
-		// TODO Get integer from the 1st argument. Note that line should be
+
+		if (args.length < 4) {
+			System.err.println("Please use arguments: [-]lineNo (TextToAdd/Replace|-) (inputFile|-) (outputFile|-)");
+			System.exit(1);
+		}
+		
+		
+		
+		// DO Get integer from the 1st argument. Note that line should be
 		// deleted if number is negative.
 		// Hint. Use Integer.parseInt() to parse String into integer
+		
+		boolean deletes = false;
+		if (Integer.parseInt(args[0]) < 0)
+			deletes = true;
+		
 
 		// TODO set value of the string from 1st parameter into content
 
+		inLineNo = Math.abs(Integer.parseInt(args[0]));
+		
 		/*- TODO Initialize new buffered character reader (BufferedReader) and:
 		 * 1. If input file name (3rd parameter) is "-", add reader to the Standard input (System.in).
 		 * 2. Otherwise check if file exists (if it doesn't, create it) and 
 		 *    add reader to this file.
+		 *    
+		 *    
 		 */
-
+	
+		
+		File file = new File(args[2]);
+		try{
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			String s;
+		} 
+		
+		
 		/*- TODO Initialize new buffered character writer (PrintWriter) and:
 		 *  1. If output file name (4th parameter) is "-", add writer to the standard output (System.out)
 		 *  2. Otherwise initialize writer to the file of given name.
