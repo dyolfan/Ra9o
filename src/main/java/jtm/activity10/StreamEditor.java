@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
 import jtm.extra04.Student;
@@ -77,10 +79,11 @@ public class StreamEditor {
 		if (Integer.parseInt(args[0]) < 0)
 			deletes = true;
 		
+		inFileName = args[2];
+		outFileName = args[3];
 
 		// TODO set value of the string from 1st parameter into content
-
-		inLineNo = Math.abs(Integer.parseInt(args[0]));
+		content = args[0];
 		
 		/*- TODO Initialize new buffered character reader (BufferedReader) and:
 		 * 1. If input file name (3rd parameter) is "-", add reader to the Standard input (System.in).
@@ -89,19 +92,25 @@ public class StreamEditor {
 		 *    
 		 *    
 		 */
+		
+		File file = new File(inFileName);
+		
+		
+		if ( args[2].charAt(0) == "-".toCharArray()[0]) {
+			InputStreamReader isr = new InputStreamReader(System.in);
+			reader = new BufferedReader(isr);
+		} else reader = new BufferedReader(new FileReader(file));
 	
-		
-		File file = new File(args[2]);
-		try{
-			BufferedReader br = new BufferedReader(new FileReader(file));
-			String s;
-		} 
-		
-		
 		/*- TODO Initialize new buffered character writer (PrintWriter) and:
 		 *  1. If output file name (4th parameter) is "-", add writer to the standard output (System.out)
 		 *  2. Otherwise initialize writer to the file of given name.
 		 */
+		
+		if  ( args[2].charAt(0) == "-".toCharArray()[0]) {
+			OutputStreamWriter osw = new OutputStreamWriter(System.out);
+			writer = new PrintWriter(osw);
+		
+		} else writer = new PrintWriter( new FileWriter(file));
 
 
 		// TODO Read lines in loop from passed file/standard input till to the
