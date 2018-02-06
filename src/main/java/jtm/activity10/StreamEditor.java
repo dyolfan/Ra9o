@@ -74,16 +74,14 @@ public class StreamEditor {
 		// DO Get integer from the 1st argument. Note that line should be
 		// deleted if number is negative.
 		// Hint. Use Integer.parseInt() to parse String into integer
-		
-		boolean deletes = false;
 		if (Integer.parseInt(args[0]) < 0)
-			deletes = true;
+			delete = true;
 		
 		inFileName = args[2];
 		outFileName = args[3];
 
 		// TODO set value of the string from 1st parameter into content
-		content = args[0];
+		inLineNo = Math.abs(Integer.parseInt(args[0]));
 		
 		/*- TODO Initialize new buffered character reader (BufferedReader) and:
 		 * 1. If input file name (3rd parameter) is "-", add reader to the Standard input (System.in).
@@ -93,25 +91,28 @@ public class StreamEditor {
 		 *    
 		 */
 		
-		File file = new File(inFileName);
+//		File file = new File(inFileName);
 		
 		
-		if ( args[2].charAt(0) == "-".toCharArray()[0]) {
+		if ( inFileName == "-") {
 			InputStreamReader isr = new InputStreamReader(System.in);
 			reader = new BufferedReader(isr);
-		} else reader = new BufferedReader(new FileReader(file));
-	
+		} else {
+			inFile = new File(inFileName);
+			if(!inFile.exists())
+				inFile.createNewFile();
+			reader = new BufferedReader(new FileReader(inFile));
+		}
 		/*- TODO Initialize new buffered character writer (PrintWriter) and:
 		 *  1. If output file name (4th parameter) is "-", add writer to the standard output (System.out)
 		 *  2. Otherwise initialize writer to the file of given name.
 		 */
 		
-		if  ( args[2].charAt(0) == "-".toCharArray()[0]) {
+		if  ( outFileName == "-") {
 			OutputStreamWriter osw = new OutputStreamWriter(System.out);
 			writer = new PrintWriter(osw);
 		
-		} else writer = new PrintWriter( new FileWriter(file));
-
+		} else writer = new PrintWriter( new FileWriter(outFileName));
 
 		// TODO Read lines in loop from passed file/standard input till to the
 		// end. Count number of read lines. Before appending line into writer
@@ -119,6 +120,17 @@ public class StreamEditor {
 		// content or just skip appending it to the writer.
 		// NOTE: append break at the end of written line only if it is NOT null
 		// or empty string!
+		
+		while ((curLineContent = reader.readLine()) != null) {
+			curLineContent = reader.readLine();
+			curLineNo++;
+			if (curLineNo == inLineNo){
+				
+			}
+		}
+
+		
+		
 
 		// TODO If number of input line is larger than number of lines in file,
 		// pad file with empty lines before necessary line.

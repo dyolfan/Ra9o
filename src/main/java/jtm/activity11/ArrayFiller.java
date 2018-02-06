@@ -1,6 +1,8 @@
 package jtm.activity11;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.IntStream;
 
 public class ArrayFiller implements Runnable {
 
@@ -14,12 +16,23 @@ public class ArrayFiller implements Runnable {
 		// TODO from this constructor call another constructor with more
 		// parameters and fill missing
 		// values with fixed literals
+		
+		this.latency = latency;
+		this.minValue = minValue;
+		this.maxValue = maxValue;
+		this.from = 0;
+		this.to = ArrayFillerManager.array.length-1;
+		
 	}
 
 	public ArrayFiller(int latency, int minValue, int maxValue, int from, int to) {
 		// TODO save passed values to created filler object
 		// Create and initialize pseudo-random generator. See more at:
 		// http://docs.oracle.com/javase/7/docs/api/java/util/Random.html
+		
+		this(latency, minValue, maxValue);
+		this.from = from;
+		this.to = to;
 	}
 
 	@Override
@@ -28,6 +41,17 @@ public class ArrayFiller implements Runnable {
 		// then fill ArrayFillerManager.array from..to cells with random values
 		// in
 		// minValue..maxValue range
+		
+		try {
+			Thread.sleep(latency);
+			for ( int i = from; i <= to; i ++) {
+				int x = ThreadLocalRandom.current().nextInt(minValue, maxValue + 1);
+				ArrayFillerManager.array[i] = x;
+				System.out.println(x);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
