@@ -104,25 +104,39 @@ public class ArrayFillerManager {
 		threads.add(t1);
 		threads.add(t2);
 		threads.add(t3);
-
 		
-		
-//		filler4.run();
+		filler4.run();
+		t1.start();
+		t2.start();
+		t3.start();
+		try {
+			t1.join();
+			t2.join();
+			t3.join();
+		} catch (InterruptedException e) {
+			  e.printStackTrace();
+		}
 //		  t1.start();
 //	        try {
-//	            t1.join(2000);
+//	            t1.join(200);
 //	        } catch (InterruptedException e) {
 //	            e.printStackTrace();
 //	        }
 //	        
 //	        t2.start();
 //	        try {
-//	            t1.join();
+//	            t2.join(400);
 //	        } catch (InterruptedException e) {
 //	            e.printStackTrace();
 //	        }
 //	        
 //	        t3.start();
+//	        try { 
+//	        	t3.join(800);
+//	        } catch (InterruptedException e) {
+//	            e.printStackTrace();
+//	        }
+//	        
 //	        try {
 //	            t1.join();
 //	            t2.join();
@@ -130,32 +144,6 @@ public class ArrayFillerManager {
 //	        } catch (InterruptedException e) {
 //	            e.printStackTrace();
 //	        }
-		
-		
-		
-		filler4.run();
-		  t1.start();
-	        try {
-	            t1.join(500);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	        
-	        t2.start();
-	        try {
-	            t1.join();
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	        
-	        t3.start();
-	        try {
-	            t1.join();
-	            t2.join();
-	            t3.join();
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
 	}
 
 	public static void main(String...args) {
