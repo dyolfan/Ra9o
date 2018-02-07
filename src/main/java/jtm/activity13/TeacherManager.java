@@ -1,12 +1,10 @@
 package jtm.activity13;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.mysql.jdbc.Statement;
 
 public class TeacherManager {
 
@@ -23,6 +21,20 @@ public class TeacherManager {
 		// for tests need to be executed server-wise, not just database-wise.
 		// 2. Set AutoCommit to false and use conn.commit() where necessary in
 		// other methods
+		
+		conn = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String user = "root";
+			String pass = "abcd1234";
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/?autoReconnect=true&useSSL=false",
+					user, pass);
+			
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	/**
@@ -39,7 +51,27 @@ public class TeacherManager {
 		// its fields!
 		// Hint: Because default database is not set in connection,
 		// use full notation for table "database_activity.Teacher"
-		return null;
+		String name;
+		String surname;
+		
+		java.sql.Statement stm = conn.createStatement();
+				
+		ResultSet rs = stm.executeQuery("SELECT * FROM database_activity.Teacher where id=" + id);
+			
+//			PreparedStatement prSt = conn.prepareStatement("SELECT firstname, lastname FROM database_activity.Teacher where id=?");
+//			prSt.setLong(1, id);
+//			ResultSet rs = prSt.executeQuery();
+		if (rs.next()){
+			name = rs.getString("firstname");
+			surname = rs.getString("lastname");
+		} else {
+			id = 0;
+			name = null;
+			surname = null;
+		}
+		
+		Teacher teacher = new Teacher(id, name, surname);
+		return teacher;
 	}
 
 	/**
@@ -59,8 +91,16 @@ public class TeacherManager {
 		// Note that search results of partial match
 		// in form ...like '%value%'... should be returned
 		// If nothing is found, return empty list!
-		return null;
-
+		
+		java.sql.Statement stm = conn.createStatement();
+		
+		ResultSet rs = stm.executeQuery("SELECT * FROM database_activity.Teacher where firstname like '%" + firstName + "%' AND lastName like '%" + lastName + "%'");
+		
+		while(rs.next()) {
+			Teacher tch = new Teacher(rs.getInt("id"), rs.getString("firstname"), rs.getString("lastname"));
+			results.add(tch);
+		}
+		return results;
 	}
 
 	/**
@@ -77,6 +117,12 @@ public class TeacherManager {
 
 	public boolean insertTeacher(String firstName, String lastName) throws SQLException {
 		// TODO #4 Write an sql statement that inserts teacher in database.
+		java.sql.Statement stm = conn.createStatement();
+		
+		int rs = stm.executeUpdate("INSERT INTO database_activity.Teacher(firstname, lastname) VALUES ('" + firstName + "', '" + lastName + "')");
+		
+		if (rs > 0)
+			return true;
 		return false;
 	}
 
@@ -95,6 +141,16 @@ public class TeacherManager {
 	 */
 	public boolean insertTeacherAll(int id, String firstName, String lastName) throws SQLException {
 		// TODO #5 Write an sql statement that inserts teacher in database.
+		java.sql.Statement stm = conn.createStatement();
+
+		
+		PreparedStatement prSt = conn.prepareStatement("INSERT IGNORE INTO database_activity.Teacher VALUES (?, ?, ?)");
+		prSt.setInt(1, id);
+		prSt.setString(2, firstName);
+		prSt.setString(3, lastName);
+		int rs = prSt.executeUpdate();
+		if (rs > 0)
+			return true;
 		return false;
 	}
 
@@ -110,6 +166,15 @@ public class TeacherManager {
 	public boolean updateTeacher(Teacher teacher) throws SQLException {
 		boolean status = false;
 		// TODO #6 Write an sql statement that updates teacher information.
+		java.sql.Statement stm = conn.createStatement();
+		PreparedStatement prSt = conn.prepareStatement("UPDATE database_activity.Teacher SET id=?, firstname=?, lastname=? WHERE id=?");
+		prSt.setInt(1, teacher.getID());
+		prSt.setString(2, teacher.getFirstName());
+		prSt.setString(3, teacher.getLastName());
+		prSt.setInt(4, teacher.getID());
+		int rs = prSt.executeUpdate();
+		if (rs > 0)
+			return true;
 		return false;
 	}
 
@@ -124,12 +189,24 @@ public class TeacherManager {
 	 */
 	public boolean deleteTeacher(int id) throws SQLException {
 		boolean status = false;
-		// TODO #7 Write an sql statement that deletes teacher from database.
+		java.sql.Statement stm = conn.createStatement();
+		PreparedStatement prSt = conn.prepareStatement("delete from database_activity.Teacher where id=?");
+		prSt.setInt(1, id);
+		int rs = prSt.executeUpdate();
+		if (rs > 0)
+			return true;
 		return false;
 	}
 
 	public void closeConnecion() {
 		// TODO Close connection if and reset it to release connection to the
 		// database server
+		try {
+			conn.close();
+			conn = null;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
