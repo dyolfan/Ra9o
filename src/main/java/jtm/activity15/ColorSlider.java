@@ -28,6 +28,7 @@ public class ColorSlider {
 	private JFrame frmColorSlider;
 	private JSlider redSlider, greenSlider, blueSlider;
 	private JTextArea txtTest;
+	
 
 	/**
 	 * Launch the application.
@@ -55,10 +56,20 @@ public class ColorSlider {
 		frmColorSlider.setBounds(100, 100, 450, 300);
 		frmColorSlider.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmColorSlider.getContentPane().setLayout(new MigLayout("", "[][][grow]", "[][][][][][grow]"));
+		
+		redSlider = new JSlider(0, 255);
+		frmColorSlider.getContentPane().add(redSlider, "cell 2 0");
+		
+		greenSlider = new JSlider(0, 255);
+		frmColorSlider.getContentPane().add(greenSlider, "cell 2 1");
+		
+		blueSlider = new JSlider(0, 255);
+		frmColorSlider.getContentPane().add(blueSlider, "cell 2 2");
+		
 		txtTest = new JTextArea();
 		txtTest.setText("Test area");
 
-		frmColorSlider.getContentPane().add(txtTest, "cell 0 3 3 3,grow");
+		frmColorSlider.getContentPane().add(txtTest, "cell 0 3 3 3, grow");
 
 		// Color labels
 		JLabel lblR = new JLabel("R");
@@ -78,16 +89,48 @@ public class ColorSlider {
 		frmColorSlider.setVisible(true);
 
 	}
-
+	
+	
 	private void add_listeners() {
 		// TODO add event listeners to all sliders and call change_color method
 		// from them
+		redSlider.addChangeListener(new ChangeListener() {	
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				// TODO Auto-generated method stub
+				change_color();
+			}
+		});
+		
+		greenSlider.addChangeListener(new ChangeListener() {	
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				// TODO Auto-generated method stub
+				change_color();
+			}
+		});
+		
+		blueSlider.addChangeListener(new ChangeListener() {	
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				// TODO Auto-generated method stub
+				change_color();
+			}
+		});
+		
 	}
 
 	public void change_color() {
 		// TODO change background id of txtTest object accordingly to
 		// id slider values. Use Color object for that
+		int r = getRedSliderValue();
+		int g = getGreenSliderValue();
+		int b = getBlueSliderValue();
+		Color color = new Color(r, g, b);	
+		txtTest.setBackground(color);
 	}
+	
+	
 
 	// These methods provide publics getters for redSlider, greenSlider and
 	// blueSlider values for Unit tests
