@@ -26,9 +26,9 @@ package jtm.activity09;
  */
 
 public class Order implements Comparable<Order> {
-	String name;
-	String customer;
 	int count;
+	String customer;
+	String name;
 
 	public Order(String orderer, String itemName, Integer count) {
 		this.customer = orderer;
@@ -37,13 +37,15 @@ public class Order implements Comparable<Order> {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + count;
-		result = prime * result + ((customer == null) ? 0 : customer.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
+	public int compareTo(Order arg0) {
+		if(this.customer.equals(arg0.customer)  && this.name.equals(arg0.name) && this.count == arg0.count){
+			return 0;
+	} else if (this.customer.compareTo(arg0.customer) < 0 || this.name.compareTo(arg0.name) < 0|| this.count < arg0.count) {
+		return -1;
+	} else {
+		return 1;
+	}
+		
 	}
 
 	@Override
@@ -79,31 +81,13 @@ public class Order implements Comparable<Order> {
 	}
 	
 	@Override
-	public int compareTo(Order arg0) {
-//		Order comp = (Order) arg0;
-//		if (this.equals(arg0))
-//			return 0;
-//		if (this.name != comp.name)
-//			if (this.name.compareTo(comp.name) < 0)
-//				return -1;
-//			else return 1;
-//		if (this.customer != comp.customer)
-//			if (this.customer.compareTo(comp.customer) < 0)
-//				return -1;
-//			else return 1;
-//		if (Integer.compare(this.count, comp.count) < 0)
-//			return -1;
-//		if (Integer.compare(this.count, comp.count) > 0)
-//			return 1;
-//		return 0;
-		if(this.customer.equals(arg0.customer)  && this.name.equals(arg0.name) && this.count == arg0.count){
-			return 0;
-	} else if (this.customer.compareTo(arg0.customer) < 0 || this.name.compareTo(arg0.name) < 0|| this.count < arg0.count) {
-		return -1;
-	} else {
-		return 1;
-	}
-		
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + count;
+		result = prime * result + ((customer == null) ? 0 : customer.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
 	}
 
 	@Override

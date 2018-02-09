@@ -7,13 +7,13 @@ public class Ship extends Transport {
 
 	protected byte numberOfSails;
 
-	public Ship(String id, float consumption, int tankSize) {
-		super(id, consumption, tankSize);
-	}
-
 	public Ship(String id, byte sails) {
 		super(id);
 		this.numberOfSails = sails;
+	}
+
+	public Ship(String id, float consumption, int tankSize) {
+		super(id, consumption, tankSize);
 	}
 
 	@Override

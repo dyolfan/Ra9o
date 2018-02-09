@@ -1,9 +1,5 @@
 package jtm.activity09;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -40,9 +36,9 @@ import java.util.TreeSet;
  */
 
 public class OrderList implements Iterator<Order> {
-	public List<Order> list = null;
 	public int currentOrder;
 	public int iter = -1;
+	public List<Order> list = null;
 	public Order toDelete = null;
 	
 	
@@ -106,10 +102,6 @@ public class OrderList implements Iterator<Order> {
 	}
 	
 	
-	public void sort() {
-		list.sort(null);
-	}
-
 	@Override
 	public boolean hasNext() {
 		if (list != null){
@@ -130,6 +122,7 @@ public class OrderList implements Iterator<Order> {
 		return list.get(iter);
 	}
 
+	@Override
 	public void remove() {
 		if(toDelete!=null && iter >= 0) {
 			list.remove(iter);
@@ -137,6 +130,10 @@ public class OrderList implements Iterator<Order> {
 			currentOrder--;
 		} else throw new IllegalStateException();
 		
+	}
+
+	public void sort() {
+		list.sort(null);
 	}
 	
 	@Override 

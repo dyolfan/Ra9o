@@ -6,10 +6,9 @@ package jtm.extra09;
 public interface Crocodile {
 
 	/**
-	 * Moves crocodile on the passed board eats candies and counts moves and
-	 * candies
+	 * @return number of eaten candies
 	 */
-	public void move(Board board);
+	public int getCandies();
 
 	/**
 	 * @return number of passed moves
@@ -17,13 +16,14 @@ public interface Crocodile {
 	public int getMoves();
 
 	/**
-	 * @return number of eaten candies
-	 */
-	public int getCandies();
-
-	/**
 	 * @return type of the crocodile
 	 */
 	public String getType();
+
+	/**
+	 * Moves crocodile on the passed board eats candies and counts moves and
+	 * candies
+	 */
+	public void move(Board board);
 
 }

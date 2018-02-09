@@ -1,8 +1,8 @@
 package jtm.extra04;
 
 public class Student {
-	private int ID;
 	private String firstName;
+	private int ID;
 	private String lastName;
 	private int phoneNumber;
 
@@ -22,32 +22,32 @@ public class Student {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public int getID() {
+		return ID;
 	}
 
 	public String getLastName() {
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	public int getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public int getID() {
-		return ID;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public void setID(int iD) {
 		ID = iD;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 }

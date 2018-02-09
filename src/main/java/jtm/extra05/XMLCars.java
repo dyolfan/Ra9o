@@ -11,6 +11,22 @@ public class XMLCars {
 	 */
 
 
+	/*-
+	 * @param schemaSource — String containing XSD schema definition from car.xsd file
+	 * @param xmlSource — String containing XML for car
+	 * @return — true, if xmlSource is valid
+	 * @throws Exception — if xmlSource is invalid
+	 *         (will be thrown by javax.xml.validation.Validator automatically)
+	 */
+	public static boolean validateXMLSchema(String schemaSource, String xmlSource) throws Exception {
+		/*- TODO No. 2: Write a code to validate prepared XML source according to schema source
+		 * Note that Exception should be thrown, if passed XML file is invalid.
+		 * HINT:
+		 * Use https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/Validator.html
+		 */
+		return false;
+	}
+
 	public void addCar(int id, String model, String color, int year, float price, String notes) throws Exception {
 		// TODO #3
 		/*- Implement method which adds new car elements into XML structure.
@@ -46,22 +62,6 @@ public class XMLCars {
 		 */
 		return "";
 
-	}
-
-	/*-
-	 * @param schemaSource — String containing XSD schema definition from car.xsd file
-	 * @param xmlSource — String containing XML for car
-	 * @return — true, if xmlSource is valid
-	 * @throws Exception — if xmlSource is invalid
-	 *         (will be thrown by javax.xml.validation.Validator automatically)
-	 */
-	public static boolean validateXMLSchema(String schemaSource, String xmlSource) throws Exception {
-		/*- TODO No. 2: Write a code to validate prepared XML source according to schema source
-		 * Note that Exception should be thrown, if passed XML file is invalid.
-		 * HINT:
-		 * Use https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/Validator.html
-		 */
-		return false;
 	}
 
 }

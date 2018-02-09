@@ -1,7 +1,8 @@
 package jtm.extra06;
 
-import java.util.LinkedList;
 import static jtm.extra06.GenericsTest.log;
+
+import java.util.LinkedList;
 
 // import statically jtm.activity16.GenericsTest.log
 // StringBuilder to be able referring to it by its name only

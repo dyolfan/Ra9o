@@ -36,15 +36,12 @@ import jtm.extra06.HolidayTest;
 import jtm.extra06.RegExTest;
 import jtm.extra07.ChatClientTest;
 import jtm.extra08.InvoiceManagerTest;
-import jtm.extra09.BoardTest;
 import jtm.extra09.CrocodileTest;
 import jtm.extra09.GameTest;
 import jtm.extra10.LogTest;
 import jtm.extra13.GitMergeTest;
 import jtm.extra14.JNIClassTest;
 import jtm.extra16.PersonMatcherTests;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(JtmSuite.class)
 @SuiteClasses({

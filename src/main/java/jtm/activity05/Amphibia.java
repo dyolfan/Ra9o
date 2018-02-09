@@ -13,6 +13,7 @@ public class Amphibia extends Transport {
 		vehicle = new Vehicle(id, consumption, tankSize, wheels);
 	}
 
+	@Override
 	public String move(Road road) {
 		if (road instanceof WaterRoad) {
 			return String.format("%s is sailing on %s with %d sails", this.getType(), road.toString(),

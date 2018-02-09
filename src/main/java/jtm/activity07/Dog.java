@@ -3,6 +3,10 @@ package jtm.activity07;
 public class Dog extends Mammal {
 	private String name;
 
+	public String getName() {
+		return this.name;
+	}
+
 	public void setName(String name) {
 		boolean hasDigit = false;
 		for (char x : name.toCharArray())
@@ -15,9 +19,5 @@ public class Dog extends Mammal {
 
 		if (name == name.toLowerCase())
 			this.name = "";
-	}
-
-	public String getName() {
-		return this.name;
 	}
 }

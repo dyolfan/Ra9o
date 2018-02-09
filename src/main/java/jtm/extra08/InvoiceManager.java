@@ -6,8 +6,16 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class InvoiceManager {
-	EntityManagerFactory emf; // factory class to create new EntityManager
+	public static void main(String[] args) {
+		// By default, run Junit test if started as Java application
+		// Feel free to change this method for your own needs
+		InvoiceManagerTest test = new InvoiceManagerTest();
+		test.testInvoiceToItem();
+		test.testItemToInvoice();
+	}
 	EntityManager em; // entity manager to manage persistence
+	EntityManagerFactory emf; // factory class to create new EntityManager
+
 	EntityTransaction entityTransaction; // optional transaction
 
 	public InvoiceManager() {
@@ -16,6 +24,17 @@ public class InvoiceManager {
 		em = emf.createEntityManager();
 		// Initialize EnitityTransaction to manage transactions directly
 		entityTransaction = em.getTransaction();
+	}
+
+	public void addItemToInvoice(Invoice invoice, Item item) {
+		// TODO add passed item to the passed invoice
+	}
+
+	public void clearData() {
+		// Use this method to delete any previous data from database tables
+		entityTransaction.begin();
+		em.createNativeQuery("delete from item; delete from invoice;").executeUpdate();
+		entityTransaction.commit();
 	}
 
 	public Invoice createInvoice(Integer id) {
@@ -38,10 +57,6 @@ public class InvoiceManager {
 		return null;
 	}
 
-	public void addItemToInvoice(Invoice invoice, Item item) {
-		// TODO add passed item to the passed invoice
-	}
-
 	public void persist(Object o) {
 		// Saves any passed object into database using EntityManager
 		try {
@@ -62,20 +77,5 @@ public class InvoiceManager {
 	public Item searchItem(Integer id) {
 		// TODO search item in database and return reference to it
 		return null;
-	}
-
-	public void clearData() {
-		// Use this method to delete any previous data from database tables
-		entityTransaction.begin();
-		em.createNativeQuery("delete from item; delete from invoice;").executeUpdate();
-		entityTransaction.commit();
-	}
-
-	public static void main(String[] args) {
-		// By default, run Junit test if started as Java application
-		// Feel free to change this method for your own needs
-		InvoiceManagerTest test = new InvoiceManagerTest();
-		test.testInvoiceToItem();
-		test.testItemToInvoice();
 	}
 }

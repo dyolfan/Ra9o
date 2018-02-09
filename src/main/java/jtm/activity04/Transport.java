@@ -1,13 +1,11 @@
 package jtm.activity04;
 
-import java.util.Locale;
-
 public class Transport {
+	private float consumption; // fuel consumption in litres per 100km
+	private float fuelInTank; // fuel in tank
 	// Do not change access modifiers to encapsulate internal properties!
 	private String id; // Transport registration number
-	private float consumption; // fuel consumption in litres per 100km
 	private int tankSize; // tank size in litres
-	private float fuelInTank; // fuel in tank
 
 	/*- #1
 	 * Select menu Source — Generate Constructor using Fields...
@@ -16,15 +14,15 @@ public class Transport {
 	 * And make fuel tank full.
 	 */
 
+	public Transport(String id) {
+		this.id = id;
+	}
+
 	public Transport(String id, float consumption, int tankSize) {
 		this.id = id;
 		this.consumption = consumption;
 		this.tankSize = tankSize;
 		this.fuelInTank = tankSize;
-	}
-
-	public Transport(String id) {
-		this.id = id;
 	}
 
 	/*- #2
@@ -33,50 +31,27 @@ public class Transport {
 	 * fuelInTank fields
 	 */
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public float getConsumption() {
 		return consumption;
-	}
-
-	public void setConsumption(float consumption) {
-		this.consumption = consumption;
-	}
-
-	public int getTankSize() {
-		return tankSize;
-	}
-
-	public void setTankSize(int tankSize) {
-		this.tankSize = tankSize;
 	}
 
 	public float getFuelInTank() {
 		return fuelInTank;
 	}
 
-	public void setFuelInTank(float fuelInTank) {
-		this.fuelInTank = fuelInTank;
+	public String getId() {
+		return id;
 	}
 
-	/*- #3
-	 * Select menu: Source — Generate toString()...
-	 * and implement this method, that t returns String in form:
-	 * "Id:ID cons:0.0l/100km, tank:00l, fuel:00.00l"
-	 * 	HINT: use String.format(Locale.US, "%.2f", float) to limit shown numbers
-	 *  to 2 decimal for fractions, and dot as a decimal delimiter.
-	 */
+	public float getNececeryFuel(Road road) {
+		float consumptionPerKm = this.getConsumption() / 100;
+		float necFuel = 0;
+		necFuel = road.getDistance() * consumptionPerKm;
+		return necFuel;
+	}
 
-	@Override
-	public String toString() {
-		return String.format("Id:%s cons:%.1fl/100km, tank:%dl, fuel:%.2fl", this.id, this.consumption, this.tankSize,
-				this.fuelInTank);
+	public int getTankSize() {
+		return tankSize;
 	}
 
 	// Return transport id and type as string e.g. "AAA Transport"
@@ -85,11 +60,6 @@ public class Transport {
 		// return required value
 		return String.format("%s %s", this.getId(), this.getClass().getSimpleName());
 	}
-
-	// HINT: use getType() to describe transport and road.toString() to describe
-	// road
-	// HINT: String.format(Locale.US, "%.2f", float) to format float number with
-	// fixed mask
 
 	public String move(Road road) {
 		// If transport has enough fuel, decrease actual amount of fuel by
@@ -110,11 +80,39 @@ public class Transport {
 					this.getNececeryFuel(road), this.getFuelInTank());
 	}
 
-	public float getNececeryFuel(Road road) {
-		float consumptionPerKm = this.getConsumption() / 100;
-		float necFuel = 0;
-		necFuel = road.getDistance() * consumptionPerKm;
-		return necFuel;
+	public void setConsumption(float consumption) {
+		this.consumption = consumption;
+	}
+
+	/*- #3
+	 * Select menu: Source — Generate toString()...
+	 * and implement this method, that t returns String in form:
+	 * "Id:ID cons:0.0l/100km, tank:00l, fuel:00.00l"
+	 * 	HINT: use String.format(Locale.US, "%.2f", float) to limit shown numbers
+	 *  to 2 decimal for fractions, and dot as a decimal delimiter.
+	 */
+
+	public void setFuelInTank(float fuelInTank) {
+		this.fuelInTank = fuelInTank;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	// HINT: use getType() to describe transport and road.toString() to describe
+	// road
+	// HINT: String.format(Locale.US, "%.2f", float) to format float number with
+	// fixed mask
+
+	public void setTankSize(int tankSize) {
+		this.tankSize = tankSize;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Id:%s cons:%.1fl/100km, tank:%dl, fuel:%.2fl", this.id, this.consumption, this.tankSize,
+				this.fuelInTank);
 	}
 
 }

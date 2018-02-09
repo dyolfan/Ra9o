@@ -1,9 +1,6 @@
 package jtm.activity11;
 
 import java.util.LinkedList;
-import java.util.Vector;
-
-import org.junit.runner.Runner;
 
 /**
  * This is frontend class for array filler. It uses ArrayFiller to fill array of
@@ -21,61 +18,6 @@ public class ArrayFillerManager {
 	// for debugging purposes if unit tests doesn't show enough information,
 	// what exactly in implementation seems wrong.
 	// Note that main() method will not be used in unit tests.
-
-	public static int[] setUp(int arraySize, int latency, int minValue, int maxValue) {
-		// TODO save passed values in prepared structure
-		// initialize array with passed size
-		// initialize list of threads
-		// return reference to the initialized array
-		
-		ArrayFillerManager.latency = latency;
-		ArrayFillerManager.minValue = minValue;
-		ArrayFillerManager.maxValue = maxValue;
-		
-		threads = new LinkedList<>();
-		
-		Thread t1 = new Thread();
-		Thread t2 = new Thread();
-		Thread t3 = new Thread();
-		Thread t4 = new Thread();
-		
-		ArrayFillerManager.threads.add(t1);
-		ArrayFillerManager.threads.add(t2);
-		ArrayFillerManager.threads.add(t3);
-		ArrayFillerManager.threads.add(t4);
-		
-		array = new int[arraySize];
-		return array;
-	}
-
-	public static void fillStupidly() {
-		// TODO create cycle which creates new ArrayFiller objects
-		// with filling range of only ONE cell at a time (i.e. range from..to is
-		// 0..0, then 1..1, etc.) and invoke .run() method for these objects.
-		// Note, that invocation of .run() method directly executes it in
-		// current (main) thread.
-		// Note that this method emulates, what would happen if you would send
-		// just small portions of data through media with latency.
-		System.out.println("*****STUPID********");
-		for ( int i = 0; i < ArrayFillerManager.array.length; i++) {
-			ArrayFiller filler = new ArrayFiller(latency, minValue, maxValue, i, i);
-			filler.run();
-		}
-		
-		
-	}
-	
-	public static void fillSequentially() {
-		// TODO create cycle which creates one ArrayFiller object
-		// with filling range for ALL array but executed just in SINGLE thread
-		// by invocation of .run() method directly.
-		// Note that this method emulates, what would happen if you would do
-		// proper "buffering" with large amount of data, but do execution just
-		// in single thread.
-		System.out.println("*****SEQUENT********");
-		ArrayFiller filler = new ArrayFiller(latency, minValue, maxValue, 0, ArrayFillerManager.array.length-1);
-		filler.run();
-	}
 
 	public static void fillParalelly() {
 		// TODO create cycle which creates new ArrayFiller objects
@@ -146,6 +88,35 @@ public class ArrayFillerManager {
 //	        }
 	}
 
+	public static void fillSequentially() {
+		// TODO create cycle which creates one ArrayFiller object
+		// with filling range for ALL array but executed just in SINGLE thread
+		// by invocation of .run() method directly.
+		// Note that this method emulates, what would happen if you would do
+		// proper "buffering" with large amount of data, but do execution just
+		// in single thread.
+		System.out.println("*****SEQUENT********");
+		ArrayFiller filler = new ArrayFiller(latency, minValue, maxValue, 0, ArrayFillerManager.array.length-1);
+		filler.run();
+	}
+	
+	public static void fillStupidly() {
+		// TODO create cycle which creates new ArrayFiller objects
+		// with filling range of only ONE cell at a time (i.e. range from..to is
+		// 0..0, then 1..1, etc.) and invoke .run() method for these objects.
+		// Note, that invocation of .run() method directly executes it in
+		// current (main) thread.
+		// Note that this method emulates, what would happen if you would send
+		// just small portions of data through media with latency.
+		System.out.println("*****STUPID********");
+		for ( int i = 0; i < ArrayFillerManager.array.length; i++) {
+			ArrayFiller filler = new ArrayFiller(latency, minValue, maxValue, i, i);
+			filler.run();
+		}
+		
+		
+	}
+
 	public static void main(String...args) {
 //		int[] array = ArrayFillerManager.setUp(20, 300, 10, 20);
 //		ArrayFillerManager.array = array;
@@ -154,6 +125,32 @@ public class ArrayFillerManager {
 //		ArrayFillerManager.fillSequentially();
 //		System.out.println("\n__________________________________\n");
 //		ArrayFillerManager.fillParalelly();
+	}
+
+	public static int[] setUp(int arraySize, int latency, int minValue, int maxValue) {
+		// TODO save passed values in prepared structure
+		// initialize array with passed size
+		// initialize list of threads
+		// return reference to the initialized array
+		
+		ArrayFillerManager.latency = latency;
+		ArrayFillerManager.minValue = minValue;
+		ArrayFillerManager.maxValue = maxValue;
+		
+		threads = new LinkedList<>();
+		
+		Thread t1 = new Thread();
+		Thread t2 = new Thread();
+		Thread t3 = new Thread();
+		Thread t4 = new Thread();
+		
+		ArrayFillerManager.threads.add(t1);
+		ArrayFillerManager.threads.add(t2);
+		ArrayFillerManager.threads.add(t3);
+		ArrayFillerManager.threads.add(t4);
+		
+		array = new int[arraySize];
+		return array;
 	}
 	
 }

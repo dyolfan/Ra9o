@@ -25,17 +25,17 @@ import net.miginfocom.swing.MigLayout;
 
 public class ColorSlider {
 
-	private JFrame frmColorSlider;
-	private JSlider redSlider, greenSlider, blueSlider;
-	private JTextArea txtTest;
-	
-
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		ColorSlider cs = new ColorSlider();
 	}
+	private JFrame frmColorSlider;
+	private JSlider redSlider, greenSlider, blueSlider;
+	
+
+	private JTextArea txtTest;
 
 	/**
 	 * Create the application objects and add listeners
@@ -43,6 +43,63 @@ public class ColorSlider {
 	public ColorSlider() {
 		initialize();
 		add_listeners();
+	}
+
+	private void add_listeners() {
+		// TODO add event listeners to all sliders and call change_color method
+		// from them
+		redSlider.addChangeListener(new ChangeListener() {	
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				// TODO Auto-generated method stub
+				change_color();
+			}
+		});
+		
+		greenSlider.addChangeListener(new ChangeListener() {	
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				// TODO Auto-generated method stub
+				change_color();
+			}
+		});
+		
+		blueSlider.addChangeListener(new ChangeListener() {	
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				// TODO Auto-generated method stub
+				change_color();
+			}
+		});
+		
+	}
+	
+	
+	public void change_color() {
+		// TODO change background id of txtTest object accordingly to
+		// id slider values. Use Color object for that
+		int r = getRedSliderValue();
+		int g = getGreenSliderValue();
+		int b = getBlueSliderValue();
+		Color color = new Color(r, g, b);	
+		txtTest.setBackground(color);
+	}
+
+	public int getBlueSliderValue() {
+		return blueSlider.getValue();
+	}
+	
+	
+
+	public int getGreenSliderValue() {
+		return greenSlider.getValue();
+	}
+
+	// These methods provide publics getters for redSlider, greenSlider and
+	// blueSlider values for Unit tests
+	// Do not change these methods!
+	public int getRedSliderValue() {
+		return redSlider.getValue();
 	}
 
 	/**
@@ -89,62 +146,13 @@ public class ColorSlider {
 		frmColorSlider.setVisible(true);
 
 	}
-	
-	
-	private void add_listeners() {
-		// TODO add event listeners to all sliders and call change_color method
-		// from them
-		redSlider.addChangeListener(new ChangeListener() {	
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				// TODO Auto-generated method stub
-				change_color();
-			}
-		});
-		
-		greenSlider.addChangeListener(new ChangeListener() {	
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				// TODO Auto-generated method stub
-				change_color();
-			}
-		});
-		
-		blueSlider.addChangeListener(new ChangeListener() {	
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				// TODO Auto-generated method stub
-				change_color();
-			}
-		});
-		
+
+	public void setBlueSliderValue(int value) {
+		blueSlider.setValue(value);
 	}
 
-	public void change_color() {
-		// TODO change background id of txtTest object accordingly to
-		// id slider values. Use Color object for that
-		int r = getRedSliderValue();
-		int g = getGreenSliderValue();
-		int b = getBlueSliderValue();
-		Color color = new Color(r, g, b);	
-		txtTest.setBackground(color);
-	}
-	
-	
-
-	// These methods provide publics getters for redSlider, greenSlider and
-	// blueSlider values for Unit tests
-	// Do not change these methods!
-	public int getRedSliderValue() {
-		return redSlider.getValue();
-	}
-
-	public int getGreenSliderValue() {
-		return greenSlider.getValue();
-	}
-
-	public int getBlueSliderValue() {
-		return blueSlider.getValue();
+	public void setGreenSliderValue(int value) {
+		greenSlider.setValue(value);
 	}
 
 	// These methods provide publics setters for redSlider, greenSlider and
@@ -152,14 +160,6 @@ public class ColorSlider {
 	// Do not change these methods!
 	public void setRedSliderValue(int value) {
 		redSlider.setValue(value);
-	}
-
-	public void setGreenSliderValue(int value) {
-		greenSlider.setValue(value);
-	}
-
-	public void setBlueSliderValue(int value) {
-		blueSlider.setValue(value);
 	}
 
 }

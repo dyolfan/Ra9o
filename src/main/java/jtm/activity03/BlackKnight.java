@@ -7,17 +7,12 @@ package jtm.activity03;
  * https://en.wikipedia.org/wiki/Black_Knight_%28Monty_Python%29
  */
 public class BlackKnight {
+	// the battle
+	public static short aliveKnights; // total number of alive knights
+										public static short deadKnights; // total number of dead knights
+	public static BlackKnight[] knights; // array of knights in the battle
 	// Class variables which are shared between all class members (objects)
 	public static short totalKnights; // total number of knights at the start of
-										// the battle
-	public static short aliveKnights; // total number of alive knights
-	public static short deadKnights; // total number of dead knights
-	public static BlackKnight[] knights; // array of knights in the battle
-
-	// instance variables which are separate for each class member (object)
-	public String name; // knight name
-	public byte arms, legs, head; // number of limbs
-	public boolean alive; // is knight alive
 
 	public static void setBattle(int initialNumber) {
 		// initialize new array of knights with the passed size.
@@ -26,6 +21,11 @@ public class BlackKnight {
 		totalKnights = 0;
 		aliveKnights = 0;
 	}
+	public boolean alive; // is knight alive
+	public byte arms, legs, head; // number of limbs
+
+	// instance variables which are separate for each class member (object)
+	public String name; // knight name
 
 	public BlackKnight(String name) {
 		// set name of newly created knight
@@ -47,6 +47,19 @@ public class BlackKnight {
 		totalKnights++;
 	}
 
+	private String aliveKnightsNames() {
+		String names = "";
+		for (int i = 0; i < knights.length; i++) {
+			if (knights[i].alive) {
+				if (i == knights.length - 1)
+					names += knights[i].name;
+				else
+					names += knights[i].name + ", ";
+			}
+		}
+		return names;
+	}
+
 	public String cutOffArm() {
 		// handle cutting off knight's arms in following way:
 		// If knight is dead, return "Only chicken beats dead!"
@@ -58,22 +71,6 @@ public class BlackKnight {
 		if (arms > 0) {
 			arms--;
 			message = "Bugger!";
-		} else
-			message = "Haah!";
-		return message;
-	}
-
-	public String cutOffLeg() {
-		// handle cutting off legs knight's legs in following way:
-		// If knight is dead, return "Only chicken beats dead!"
-		// If knight has some legs, cut one off and return "Bollocks!"
-		// Else return just "Haah!"
-		String message;
-		if (!alive)
-			message = "Only chicken beats dead!";
-		if (legs > 0) {
-			legs--;
-			message = "Bollocks!";
 		} else
 			message = "Haah!";
 		return message;
@@ -106,16 +103,19 @@ public class BlackKnight {
 		return message;
 	}
 
-	private String aliveKnightsNames() {
-		String names = "";
-		for (int i = 0; i < knights.length; i++) {
-			if (knights[i].alive) {
-				if (i == knights.length - 1)
-					names += knights[i].name;
-				else
-					names += knights[i].name + ", ";
-			}
-		}
-		return names;
+	public String cutOffLeg() {
+		// handle cutting off legs knight's legs in following way:
+		// If knight is dead, return "Only chicken beats dead!"
+		// If knight has some legs, cut one off and return "Bollocks!"
+		// Else return just "Haah!"
+		String message;
+		if (!alive)
+			message = "Only chicken beats dead!";
+		if (legs > 0) {
+			legs--;
+			message = "Bollocks!";
+		} else
+			message = "Haah!";
+		return message;
 	}
 }

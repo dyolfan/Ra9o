@@ -26,33 +26,21 @@ public class BasicMathFunctions {
 	}
 
 	/**
-	 * @return subtraction of two numbers
-	 */
-	public int subtraction(int initialTeethCount, int cnockedTeethCount) {
-		// #2 Robert had initialTeethCount teeth.
-		// Mary's brother found out what Robert did and knocked out
-		// cnockedTeethCount teeth.
-		// How much teeth Robert will have left?
-		return initialTeethCount - cnockedTeethCount;
-	}
-
-	/**
-	 * @return multiplication of two numbers
-	 */
-	public int multiplication(int numberOfKnockedTeeth, int pricePerTooth) {
-		// #3 Robert's parents caught Mary's brother and forced him to pay
-		// pricePerTooth for each knocked Robert's tooth.
-		// How much money will Robert earn?
-		return numberOfKnockedTeeth * pricePerTooth;
-	}
-
-	/**
 	 * @return division of two integer numbers
 	 */
 	public int division(int moneyForTeeth, int reduction) {
 		// #4 Robert agreed to divide price per teeth by reduction
 		// factor. How much money will Robert earn now?
 		return moneyForTeeth / reduction;
+	}
+
+	/**
+	 * @return value increased by 1
+	 */
+	public int increment(int teethCount) {
+		// #6 Doctors were able to fix one Robert's teeth.
+		// Please increase number of Robert's teeth by one
+		return ++teethCount;
 	}
 
 	/**
@@ -67,12 +55,24 @@ public class BasicMathFunctions {
 	}
 
 	/**
-	 * @return value increased by 1
+	 * @return multiplication of two numbers
 	 */
-	public int increment(int teethCount) {
-		// #6 Doctors were able to fix one Robert's teeth.
-		// Please increase number of Robert's teeth by one
-		return ++teethCount;
+	public int multiplication(int numberOfKnockedTeeth, int pricePerTooth) {
+		// #3 Robert's parents caught Mary's brother and forced him to pay
+		// pricePerTooth for each knocked Robert's tooth.
+		// How much money will Robert earn?
+		return numberOfKnockedTeeth * pricePerTooth;
+	}
+
+	/**
+	 * @return subtraction of two numbers
+	 */
+	public int subtraction(int initialTeethCount, int cnockedTeethCount) {
+		// #2 Robert had initialTeethCount teeth.
+		// Mary's brother found out what Robert did and knocked out
+		// cnockedTeethCount teeth.
+		// How much teeth Robert will have left?
+		return initialTeethCount - cnockedTeethCount;
 	}
 
 }

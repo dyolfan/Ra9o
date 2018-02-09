@@ -16,11 +16,19 @@ public class SimpleCalc {
 	}
 
 	// specify that method can throw SimpleCalcException
-	public static int subtract(int a, int b) throws SimpleCalcException {
-		validateInput(a, b, "-");
-		validateOutput(a, b, "-");
+	public static int divide(int a, int b) throws SimpleCalcException {
+		validateInput(a, b, "/");
+		validateOutput(a, b, "/");
+		return a / b;
+	}
 
-		return a - b;
+	public static void main(String[] args) {
+
+		try {
+			System.out.println(add(-9, -9));
+		} catch (SimpleCalcException e) {
+			e.printStackTrace();
+		}
 	}
 
 	// specify that method can throw SimpleCalcException
@@ -31,10 +39,11 @@ public class SimpleCalc {
 	}
 
 	// specify that method can throw SimpleCalcException
-	public static int divide(int a, int b) throws SimpleCalcException {
-		validateInput(a, b, "/");
-		validateOutput(a, b, "/");
-		return a / b;
+	public static int subtract(int a, int b) throws SimpleCalcException {
+		validateInput(a, b, "-");
+		validateOutput(a, b, "-");
+
+		return a - b;
 	}
 
 	// Validate that inputs are in range of -10..+10 using assertions
@@ -110,15 +119,6 @@ public class SimpleCalc {
 		if (result < -10) {
 			message = "output value " + a + " " + operation + " " + b + " = " + result + " is below -10";
 			throw new SimpleCalcException(message);
-		}
-	}
-
-	public static void main(String[] args) {
-
-		try {
-			System.out.println(add(-9, -9));
-		} catch (SimpleCalcException e) {
-			e.printStackTrace();
 		}
 	}
 }

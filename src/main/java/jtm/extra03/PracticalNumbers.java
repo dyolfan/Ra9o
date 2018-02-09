@@ -7,11 +7,12 @@ import java.util.TreeSet;
 
 public class PracticalNumbers {
 
-	// TODO Read article https://en.wikipedia.org/wiki/Practical_number
-	// Implement method, which returns practical numbers in given range
-	// including
-	public String getPracticalNumbers(int from, int to) {
-		return "";
+	public static int getSumExcept(int index, List<Integer> numbers) {
+		int sum = 0;
+		for (int i = 0; i < numbers.size(); i++)
+			if (i != index)
+				sum += numbers.get(i);
+		return sum;
 	}
 
 	static public boolean isPartical(int number) {
@@ -63,14 +64,6 @@ public class PracticalNumbers {
 
 	}
 
-	public static int getSumExcept(int index, List<Integer> numbers) {
-		int sum = 0;
-		for (int i = 0; i < numbers.size(); i++)
-			if (i != index)
-				sum += numbers.get(i);
-		return sum;
-	}
-
 	public static void main(String[] args) {
 
 		List<Integer> devision = new LinkedList<>();
@@ -89,5 +82,12 @@ public class PracticalNumbers {
 		// isPartical(64);
 		// isPartical(65);
 		// isPartical(66);
+	}
+
+	// TODO Read article https://en.wikipedia.org/wiki/Practical_number
+	// Implement method, which returns practical numbers in given range
+	// including
+	public String getPracticalNumbers(int from, int to) {
+		return "";
 	}
 }

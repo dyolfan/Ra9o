@@ -2,8 +2,8 @@ package jtm.activity13;
 
 public class Teacher {
 
-	private int id;
 	private String firstName;
+	private int id;
 	private String lastName;
 
 	// TODO process passed values
@@ -14,14 +14,14 @@ public class Teacher {
 		this.lastName = lastName;
 	}
 
-	public int getID() {
-		// TODO return required value
-		return id;
-	}
-
 	public String getFirstName() {
 		// TODO return required value
 		return firstName;
+	}
+
+	public int getID() {
+		// TODO return required value
+		return id;
 	}
 
 	public String getLastName() {

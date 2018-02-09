@@ -1,19 +1,17 @@
 /*     */ package jtm.activity14;
-/*     */ 
-/*     */ import java.io.PrintStream;
 /*     */ import java.sql.Connection;
 import java.sql.PreparedStatement;
 /*     */ import java.sql.SQLException;
 /*     */ import java.util.List;
-/*     */ import jtm.TestUtils;
+
 /*     */ import org.apache.log4j.Logger;
-import org.junit.After;
 /*     */ import org.junit.Assert;
-import org.junit.Before;
 /*     */ import org.junit.BeforeClass;
 /*     */ import org.junit.FixMethodOrder;
 /*     */ import org.junit.Test;
 /*     */ import org.junit.runners.MethodSorters;
+
+/*     */ import jtm.TestUtils;
 /*     */ 
 /*     */ 
 /*     */ 
@@ -26,15 +24,30 @@ import org.junit.Before;
 /*     */ @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 /*     */ public class DatabaseUnitTest1
 /*     */ {
-/*  26 */   private static boolean dirtyDatabase = true;
-/*  27 */   private static Logger logger = Logger.getLogger(DatabaseUnitTest1.class);
 /*     */   
 /*     */   private static Connection conn;
+/*  26 */   private static boolean dirtyDatabase = true;
+/*  32 */   private static String fnameToDelete = "To be";
+/*  34 */   private static int idToDelete = 5;
+/*  33 */   private static String lnameToDelete = "Deleted";
+/*  27 */   private static Logger logger = Logger.getLogger(DatabaseUnitTest1.class);
 /*     */   
 /*     */   private static StudentManager manager;
-/*  32 */   private static String fnameToDelete = "To be";
-/*  33 */   private static String lnameToDelete = "Deleted";
-/*  34 */   private static int idToDelete = 5;
+/*     */   
+/*     */   public static void resetDatabase() {
+/* 238 */     if (dirtyDatabase) {
+/*     */       try {
+/* 240 */         String workspace = System.getProperty("user.dir");
+/* 241 */         TestUtils.executeCmd("mysql -s -uroot -pabcd1234 < " + workspace + "/src/main/java/jtm/activity14/database.sql 2>/dev/null");
+/*     */         
+/* 243 */         logger.info("Database dump restored");
+/* 244 */         dirtyDatabase = false;
+/*     */       } catch (Exception e) {
+/* 246 */         TestUtils.handleErrorAndFail(e);
+/*     */       }
+/*     */     } else
+/* 249 */       logger.info("Database is clean");
+/*     */   }
 /*     */   
 /*     */   @BeforeClass
 /*     */   public static void setUpBeforeClass() {
@@ -66,6 +79,53 @@ import org.junit.Before;
 /*     */     catch (Exception e)
 /*     */     {
 /*  65 */       TestUtils.handleErrorAndFail(e);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void checkStudent(Student result, String firstname, String lastname, Long id) {
+/* 266 */     Assert.assertEquals("Firstname comparison error.", firstname, result.getFirstName());
+/* 267 */     Assert.assertEquals("Lastname comparison error.", lastname, result.getLastName());
+/* 268 */     if (id != null) {
+/* 269 */       Assert.assertEquals("ID comparison error.", id.longValue(), result.getID());
+/*     */     }
+/*     */   }
+/*     */
+/*     */   
+/*     */   private void checkStudents(List<Student> results, String firstname, String lastname) {
+/* 253 */     checkStudents(results, firstname, lastname, null, null);
+/*     */   }
+/*     */   
+/*     */   private void checkStudents(List<Student> results, String firstname, String lastname, Long id, Integer recordno) {
+/* 257 */     if (recordno == null)
+/* 258 */       recordno = Integer.valueOf(0);
+/* 259 */     Assert.assertEquals("Firstname comparison error.", firstname, results.get(recordno.intValue()).getFirstName());
+/* 260 */     Assert.assertEquals("Lastname comparison error.", lastname, results.get(recordno.intValue()).getLastName());
+/* 261 */     if (id != null)
+/* 262 */       Assert.assertEquals("ID comparison error.", id.longValue(), results.get(recordno.intValue()).getID());
+/*     */   }
+public void clean(){
+	try {
+		java.sql.Statement st = manager.conn.createStatement();
+		st.executeQuery("SET SQL_SAFE_UPDATES = 0;");
+		PreparedStatement prSt = manager.conn.prepareStatement("delete from database_activity.Student where firstname=?");
+		prSt.setString(1, "testF");
+		int rs = prSt.executeUpdate();
+		java.sql.Statement stm = manager.conn.createStatement();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+/*     */   
+/*     */   @Test
+/*     */   public void closeConnection()
+/*     */   {
+/*     */     try {
+/* 229 */       if (manager != null)
+/* 230 */         manager.closeConnecion();
+/* 231 */       Assert.assertNull("Connection is not set to null when closed.", manager.conn);
+/*     */     } catch (Exception e) {
+/* 233 */       TestUtils.handleErrorAndFail(e);
 /*     */     }
 /*     */   }
 /*     */   
@@ -106,24 +166,25 @@ import org.junit.Before;
 /* 103 */       TestUtils.handleErrorAndFail(e);
 /*     */     }
 /*     */   }
-/*     */   
-/*     */   @Test
-/*     */   public void test03InsertStudent()
-/*     */   {
-/*     */     try {
-/* 111 */       String fname = "testF";
-/* 112 */       String lname = "testL";
-/* 113 */       boolean result = manager.insertStudent(fname, lname);
-/* 114 */       Assert.assertTrue(result);
-/* 115 */       List<Student> results = manager.findStudent(fname, lname);
-/* 116 */       Assert.assertEquals("findStudent() result size error.", 1L, results.size());
-/* 117 */       checkStudents(results, fname, lname);
-				clean();
-/* 118 */       logger.info("OK");
-/*     */     } catch (Exception e) {
-/* 120 */       	TestUtils.handleErrorAndFail(e);
-/*     */     } 
-/*     */   }
+
+			/*     */   
+			/*     */   @Test
+			/*     */   public void test03InsertStudent()
+			/*     */   {
+			/*     */     try {
+			/* 111 */       String fname = "testF";
+			/* 112 */       String lname = "testL";
+			/* 113 */       boolean result = manager.insertStudent(fname, lname);
+			/* 114 */       Assert.assertTrue(result);
+			/* 115 */       List<Student> results = manager.findStudent(fname, lname);
+			/* 116 */       Assert.assertEquals("findStudent() result size error.", 1L, results.size());
+			/* 117 */       checkStudents(results, fname, lname);
+							clean();
+			/* 118 */       logger.info("OK");
+			/*     */     } catch (Exception e) {
+			/* 120 */       	TestUtils.handleErrorAndFail(e);
+			/*     */     } 
+			/*     */   }
 /*     */   
 /*     */   @Test
 /*     */   public void test04InsertStudentAll()
@@ -224,70 +285,7 @@ import org.junit.Before;
 /*     */     } catch (Exception e) {
 /* 221 */       TestUtils.handleErrorAndFail(e);
 /*     */     }
-/*     */   }
-/*     */   
-/*     */   @Test
-/*     */   public void closeConnection()
-/*     */   {
-/*     */     try {
-/* 229 */       if (manager != null)
-/* 230 */         manager.closeConnecion();
-/* 231 */       Assert.assertNull("Connection is not set to null when closed.", manager.conn);
-/*     */     } catch (Exception e) {
-/* 233 */       TestUtils.handleErrorAndFail(e);
-/*     */     }
-/*     */   }
-
-			public void clean(){
-				try {
-					java.sql.Statement st = manager.conn.createStatement();
-					st.executeQuery("SET SQL_SAFE_UPDATES = 0;");
-					PreparedStatement prSt = manager.conn.prepareStatement("delete from database_activity.Student where firstname=?");
-					prSt.setString(1, "testF");
-					int rs = prSt.executeUpdate();
-					java.sql.Statement stm = manager.conn.createStatement();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-/*     */   
-/*     */   public static void resetDatabase() {
-/* 238 */     if (dirtyDatabase) {
-/*     */       try {
-/* 240 */         String workspace = System.getProperty("user.dir");
-/* 241 */         TestUtils.executeCmd("mysql -s -uroot -pabcd1234 < " + workspace + "/src/main/java/jtm/activity14/database.sql 2>/dev/null");
-/*     */         
-/* 243 */         logger.info("Database dump restored");
-/* 244 */         dirtyDatabase = false;
-/*     */       } catch (Exception e) {
-/* 246 */         TestUtils.handleErrorAndFail(e);
-/*     */       }
-/*     */     } else
-/* 249 */       logger.info("Database is clean");
-/*     */   }
-/*     */   
-/*     */   private void checkStudents(List<Student> results, String firstname, String lastname) {
-/* 253 */     checkStudents(results, firstname, lastname, null, null);
-/*     */   }
-/*     */   
-/*     */   private void checkStudents(List<Student> results, String firstname, String lastname, Long id, Integer recordno) {
-/* 257 */     if (recordno == null)
-/* 258 */       recordno = Integer.valueOf(0);
-/* 259 */     Assert.assertEquals("Firstname comparison error.", firstname, ((Student)results.get(recordno.intValue())).getFirstName());
-/* 260 */     Assert.assertEquals("Lastname comparison error.", lastname, ((Student)results.get(recordno.intValue())).getLastName());
-/* 261 */     if (id != null)
-/* 262 */       Assert.assertEquals("ID comparison error.", id.longValue(), ((Student)results.get(recordno.intValue())).getID());
-/*     */   }
-/*     */   
-/*     */   private void checkStudent(Student result, String firstname, String lastname, Long id) {
-/* 266 */     Assert.assertEquals("Firstname comparison error.", firstname, result.getFirstName());
-/* 267 */     Assert.assertEquals("Lastname comparison error.", lastname, result.getLastName());
-/* 268 */     if (id != null) {
-/* 269 */       Assert.assertEquals("ID comparison error.", id.longValue(), result.getID());
-/*     */     }
-/*     */   }
-/*     */ }
+/*     */   } }
 /* Location:           /home/kirils/workspace/Ra9o/lib/JTM.jar
  * Qualified Name:     jtm.activity14.DatabaseUnitTest1
  * Java Class Version: 8 (52.0)

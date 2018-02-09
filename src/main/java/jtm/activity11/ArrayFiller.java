@@ -2,14 +2,13 @@ package jtm.activity11;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.IntStream;
 
 public class ArrayFiller implements Runnable {
 
-	int latency; // required latency time (in miliseconds) to simulate real
-					// environment
-	int minValue, maxValue; // min and max allowed values for array cells
 	int from, to; // range which should be filled by this filler
+					int latency; // required latency time (in miliseconds) to simulate real
+	// environment
+	int minValue, maxValue; // min and max allowed values for array cells
 	Random random; // Pseudo-random generator
 
 	public ArrayFiller(int latency, int minValue, int maxValue) {

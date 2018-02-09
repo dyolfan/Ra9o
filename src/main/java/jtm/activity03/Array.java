@@ -5,6 +5,14 @@ import java.util.Arrays;
 public class Array {
 	static int[] array;
 
+	public static void arrayToInt(String[] args) {
+		int[] arrayCopy = new int[args.length];
+		for (int i = 0; i < args.length; i++) {
+			arrayCopy[i] = Integer.parseInt(args[i]);
+		}
+		array = arrayCopy;
+	}
+
 	public static void main(String[] args) {
 		arrayToInt(args);
 		printSortedArray();
@@ -17,13 +25,5 @@ public class Array {
 	public static int[] returnSortedArray() {
 		Arrays.sort(array);
 		return array;
-	}
-
-	public static void arrayToInt(String[] args) {
-		int[] arrayCopy = new int[args.length];
-		for (int i = 0; i < args.length; i++) {
-			arrayCopy[i] = Integer.parseInt(args[i]);
-		}
-		array = arrayCopy;
 	}
 }

@@ -9,20 +9,22 @@ package jtm.extra01;
 
 public class If_Switch {
 
-	public static final String SUNNY = "SUNNY";
-	public static final String RAINY = "RAINY";
-	public static final String SNOWY = "SNOWY";
-
+	public static final int AUTUMN = 4;
 	public static final String COLD = "COLD";
-	public static final String WARM = "WARM";
 	public static final String HOT = "HOT";
 
-	public static final int WINTER = 1;
+	public static final String RAINY = "RAINY";
+	public static final String SNOWY = "SNOWY";
 	public static final int SPRING = 2;
-	public static final int SUMMER = 3;
-	public static final int AUTUMN = 4;
-	public static final int UNRECOGNISED = 0;
 
+	public static final int SUMMER = 3;
+	public static final String SUNNY = "SUNNY";
+	public static final int UNRECOGNISED = 0;
+	public static final String WARM = "WARM";
+	public static final int WINTER = 1;
+
+	int season;
+	String temperature;
 	/**
 	 * Creates an instance of the Season. Season is defined by weather and
 	 * temperature parameters. If parameters are invalid, then season is
@@ -39,8 +41,6 @@ public class If_Switch {
 	// of weather and temperature
 	// and the Integer value of season.
 	String weather;
-	String temperature;
-	int season;
 
 	public If_Switch(String weather, String temperature) {
 

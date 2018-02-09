@@ -5,8 +5,8 @@ package jtm.activity14;
 
 public class Student {
 
-	private int id;
 	private String firstName;
+	private int id;
 	private String lastName;
 
 	public Student(int id, String firstName, String lastName) {
@@ -17,12 +17,12 @@ public class Student {
 
 	}
 
-	public int getID() {
-		return id;
-	}
-
 	public String getFirstName() {
 		return firstName;
+	}
+
+	public int getID() {
+		return id;
 	}
 
 	public String getLastName() {

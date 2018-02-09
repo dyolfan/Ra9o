@@ -14,27 +14,6 @@ import java.util.StringTokenizer;
  * This class represents string tokenizer exercise.
  */
 public class StringTokenizerExercise {
-	public String[] splitString(String text, String delimiter) {
-		String[] list = null;
-		// TODO # 1 Split passed text by given delimiter and return array with
-		// split strings.
-		// HINT: Use System.out.println to better understand split method's
-		// functionality.
-		list = text.split(delimiter);
-		return list;
-	}
-
-	public List<String> tokenizeString(String text, String delimiter) {
-		// TODO # 2 Tokenize passed text by given delimiter and return list with
-		// tokenized strings.
-		List<String> list = new ArrayList<>();
-		StringTokenizer multiTokenizer = new StringTokenizer(text, delimiter);
-		while (multiTokenizer.hasMoreTokens()) {
-			list.add(multiTokenizer.nextToken());
-		}
-		return list;
-	}
-
 	public List<Student> createFromFile(String filepath, String delimiter) {
 		File students = new File(filepath);
 		List<Student> list = new ArrayList<Student>();
@@ -64,6 +43,27 @@ public class StringTokenizerExercise {
 			e.printStackTrace();
 		}
 
+		return list;
+	}
+
+	public String[] splitString(String text, String delimiter) {
+		String[] list = null;
+		// TODO # 1 Split passed text by given delimiter and return array with
+		// split strings.
+		// HINT: Use System.out.println to better understand split method's
+		// functionality.
+		list = text.split(delimiter);
+		return list;
+	}
+
+	public List<String> tokenizeString(String text, String delimiter) {
+		// TODO # 2 Tokenize passed text by given delimiter and return list with
+		// tokenized strings.
+		List<String> list = new ArrayList<>();
+		StringTokenizer multiTokenizer = new StringTokenizer(text, delimiter);
+		while (multiTokenizer.hasMoreTokens()) {
+			list.add(multiTokenizer.nextToken());
+		}
 		return list;
 	}
 

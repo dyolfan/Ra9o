@@ -1,18 +1,16 @@
 package jtm.extra07;
 
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
 public class ChatClient implements Runnable {
-	private static final int port = 9999; // port to connect to
 	private static String host = "localhost"; // host to connect to
+	private static final int port = 9999; // port to connect to
+	private static Socket server; // server socket
+	private static PrintWriter srvout; // writer to server socket stream
 	// buffered readers from standard input and server socket stream
 	private static BufferedReader stdin, srvin;
-	private static PrintWriter srvout; // writer to server socket stream
-	private static Socket server; // server socket
 	private static Thread t; // thread for server message reader
 
 	public static void main(String[] args) {
@@ -40,15 +38,15 @@ public class ChatClient implements Runnable {
 		// TODO close all data streams
 	}
 
+	public ChatClient(Socket server) {
+		// TODO try to create buffered reader to passed server socket
+		// TODO handle exceptions
+	}
+
 	@Override
 	public void run() {
 		// TODO read messages in the loop sent from server socket
 		// in this thread
-		// TODO handle exceptions
-	}
-
-	public ChatClient(Socket server) {
-		// TODO try to create buffered reader to passed server socket
 		// TODO handle exceptions
 	}
 

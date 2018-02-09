@@ -1,12 +1,8 @@
 package jtm.extra08;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 //TODO Annotate class as an @Entity, to say that its instances can be stored in the database.
 public class Item {
+	private Integer count;
 	// TODO Annotate id field as an @Id, to mark it as a primary key field.
 	private Integer id;
 	// TODO annotate invoice property with
@@ -14,7 +10,6 @@ public class Item {
 	// many-to-one relation between item and invoice
 	private Invoice invoice;
 	private String name;
-	private Integer count;
 	private Float price;
 
 	// TODO generate getters and setters for item properties

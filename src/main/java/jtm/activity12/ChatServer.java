@@ -11,18 +11,12 @@ import java.util.Vector;
 
 public class ChatServer implements Runnable {
 
+	// Thread safe list of connections to connected clients
+	static Vector<ChatServer> connections;
 	// Common structures for all threads:
 	static final int port = 9999; // port to listen on
 	// server socket, which listens to new connections
 	static ServerSocket server;
-	// Thread safe list of connections to connected clients
-	static Vector<ChatServer> connections;
-
-	// Structures for separate threads:
-	// reference to client socket when new connection is accepted
-	private Socket client;
-	private Scanner in; // for reading from client socket
-	private PrintWriter out; // for writing to client socket
 
 	/**
 	 * This is entry point to start Chat Server. Note that this method do not
@@ -66,6 +60,36 @@ public class ChatServer implements Runnable {
 				}	
 		}
 	}
+	// Structures for separate threads:
+	// reference to client socket when new connection is accepted
+	private Socket client;
+	private Scanner in; // for reading from client socket
+
+	private PrintWriter out; // for writing to client socket
+
+	/**
+	 * This constructor is used to pass client Socket reference for new thread
+	 * 
+	 * @param client
+	 */
+	ChatServer(Socket client) {
+		// 1. save passed client socket reference into current object
+		this.client = client;
+		// 2. Add newly created ChatServer into connections collection
+		connections.add(this);
+		// 3. Try to add input and output streams to the client socket
+		// HINT: to see output for each entered message, construct PrintWriter
+		// with auto flush option (or use flush() method)
+		try {
+			in = new Scanner(new InputStreamReader(client.getInputStream()));
+			out = new PrintWriter(new OutputStreamWriter(client.getOutputStream()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+		
+				// 3. handle exceptions
 
 	/**
 	 * This method processes each connected client and writes received messages
@@ -110,30 +134,6 @@ public class ChatServer implements Runnable {
 					// remove current object reference from connections collection
 					// and handle exceptions for these operations, if necessary
 				}
-		
-				// 3. handle exceptions
-
-	/**
-	 * This constructor is used to pass client Socket reference for new thread
-	 * 
-	 * @param client
-	 */
-	ChatServer(Socket client) {
-		// 1. save passed client socket reference into current object
-		this.client = client;
-		// 2. Add newly created ChatServer into connections collection
-		connections.add(this);
-		// 3. Try to add input and output streams to the client socket
-		// HINT: to see output for each entered message, construct PrintWriter
-		// with auto flush option (or use flush() method)
-		try {
-			in = new Scanner(new InputStreamReader(client.getInputStream()));
-			out = new PrintWriter(new OutputStreamWriter(client.getOutputStream()));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-	}
 
 	/**
 	 * This method is used to write message to the all connected clients

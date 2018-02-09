@@ -5,10 +5,7 @@ package jtm.extra06;
  * give nearest holiday.
  */
 public enum Holiday {
-	NEW_YEAR(1, 1), WOMAN_DAY(3, 8), CHUCK_NORRIS_BIRTHSDAY(3, 10), FOOLS_DAY9(4, 1), WORLD_END(12, 21);
-	int month;
-	int day;
-	
+	CHUCK_NORRIS_BIRTHSDAY(3, 10), FOOLS_DAY9(4, 1), NEW_YEAR(1, 1), WOMAN_DAY(3, 8), WORLD_END(12, 21);
 	public class Date {
 		int day = 0;
 		int month = 0;
@@ -21,13 +18,6 @@ public enum Holiday {
 			this.month = m;
 		}
 	}
-
-	Holiday(int month, int day) {
-		// #1 implement class variables for month and day of the holiday
-		this.month = month;
-		this.day = day;
-	}
-
 	public static Holiday getNearest(int currentMonth, int currentDay) {
 		Holiday returnHoliday = null;
 		// TODO #2 implement method which will return the nearest holiday.
@@ -71,16 +61,26 @@ public enum Holiday {
 		
 		return returnHoliday;
 	}
+	
+	public static void main(String... args) {
+		
+	}
 
-	public int getMonth() {
-		return month;
+	int day;
+
+	int month;
+
+	Holiday(int month, int day) {
+		// #1 implement class variables for month and day of the holiday
+		this.month = month;
+		this.day = day;
 	}
 
 	public int getDay() {
 		return day;
 	}
 	
-	public static void main(String... args) {
-		
+	public int getMonth() {
+		return month;
 	}
 }

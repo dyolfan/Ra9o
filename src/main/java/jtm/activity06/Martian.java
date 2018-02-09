@@ -1,70 +1,15 @@
 package jtm.activity06;
 
 public class Martian implements Alien, Humanoid, Cloneable {
-	public int weight;
 	public Object backpack;
 	public final boolean IS_ALIVE = true;
+	public int weight;
 
 	public Martian(int weigth) {
 		this.weight = weigth;
 	}
 
 	@Override
-	public String killHimself() {
-		return "I AM IMMORTAL!";
-	}
-
-	@Override
-	public int getArmCount() {
-		return Humanoid.ARM_COUNT;
-	}
-
-	@Override
-	public void setBackpack(String item) {
-		this.backpack = item;
-	}
-
-	@Override
-	public int getWeight() {
-		return this.weight;
-	}
-
-	@Override
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
-
-	@Override
-	public void eatHuman(Humanoid humanoid) {
-		if (humanoid.isAlive() == "Alive") {
-			humanoid.killHimself();
-			this.weight = this.weight + humanoid.getWeight();
-		}
-	}
-
-	@Override
-	public int getLegCount() {
-		return Alien.LEG_COUNT;
-	}
-
-	@Override
-	public Object getBackpack() {
-		return clone(this.backpack);
-	}
-
-	@Override
-	public void setBackpack(Object item) {
-		if (item == this) {
-
-		} else
-			this.backpack = item;
-	}
-
-	@Override
-	public String isAlive() {
-		return "I AM IMMORTAL!";
-	}
-
 	public Object clone() throws java.lang.CloneNotSupportedException {
 		return clone(this);
 	}
@@ -91,6 +36,62 @@ public class Martian implements Alien, Humanoid, Cloneable {
 			return copyMartian;
 		} else
 			return null;
+	}
+
+	@Override
+	public void eatHuman(Humanoid humanoid) {
+		if (humanoid.isAlive() == "Alive") {
+			humanoid.killHimself();
+			this.weight = this.weight + humanoid.getWeight();
+		}
+	}
+
+	@Override
+	public int getArmCount() {
+		return Humanoid.ARM_COUNT;
+	}
+
+	@Override
+	public Object getBackpack() {
+		return clone(this.backpack);
+	}
+
+	@Override
+	public int getLegCount() {
+		return Alien.LEG_COUNT;
+	}
+
+	@Override
+	public int getWeight() {
+		return this.weight;
+	}
+
+	@Override
+	public String isAlive() {
+		return "I AM IMMORTAL!";
+	}
+
+	@Override
+	public String killHimself() {
+		return "I AM IMMORTAL!";
+	}
+
+	@Override
+	public void setBackpack(Object item) {
+		if (item == this) {
+
+		} else
+			this.backpack = item;
+	}
+
+	@Override
+	public void setBackpack(String item) {
+		this.backpack = item;
+	}
+
+	@Override
+	public void setWeight(int weight) {
+		this.weight = weight;
 	}
 
 	@Override

@@ -8,16 +8,11 @@ public interface Alien {
 	final static int LEG_COUNT = 7;
 
 	/**
+	 * @return clone of passed object
 	 * 
-	 * @return weight of the alien
+	 *         Passed object could be null, Object String or Humanoid
 	 */
-	public int getWeight();
-
-	/**
-	 * @param weight
-	 *            sets weight of the alien
-	 */
-	public void setWeight(int weight);
+	public Object clone(Object object);
 
 	/**
 	 * @param humanoid
@@ -25,18 +20,6 @@ public interface Alien {
 	 *            when it is eaten an alien gains his weight
 	 */
 	public void eatHuman(Humanoid humanoid);
-
-	/**
-	 * @return number of arms for Alien
-	 */
-	public int getLegCount();
-
-	/**
-	 * @return clone of passed object
-	 * 
-	 *         Passed object could be null, Object String or Humanoid
-	 */
-	public Object clone(Object object);
 
 	/**
 	 * @return content of the backpack by making clone of the item
@@ -49,6 +32,22 @@ public interface Alien {
 	public Object getBackpack();
 
 	/**
+	 * @return number of arms for Alien
+	 */
+	public int getLegCount();
+
+	/**
+	 * 
+	 * @return weight of the alien
+	 */
+	public int getWeight();
+
+	/**
+	 * @return "I AM IMMORTAL!" because alien is immortal
+	 */
+	public String isAlive();
+
+	/**
 	 * @param item
 	 *            to be stored into backpack following types can be stored into
 	 *            backpack: 1. Object, e.g. String, 2. Humanoid, 3. Alien.
@@ -56,7 +55,8 @@ public interface Alien {
 	public void setBackpack(Object item);
 
 	/**
-	 * @return "I AM IMMORTAL!" because alien is immortal
+	 * @param weight
+	 *            sets weight of the alien
 	 */
-	public String isAlive();
+	public void setWeight(int weight);
 }

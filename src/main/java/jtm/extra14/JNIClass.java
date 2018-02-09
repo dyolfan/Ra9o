@@ -2,7 +2,15 @@ package jtm.extra14;
 
 public class JNIClass {
 
-	private String value; // variable to store value from native methods
+	// Load shared native library
+	static {
+		try {
+			System.load(System.getProperty("user.dir") + "/lib/jnifunctions.so");
+		} catch (UnsatisfiedLinkError e) {
+			System.out.println("Native code library failed to load.\n" + e);
+			System.exit(1);
+		}
+	}
 
 	/*- TODO #1 declare following native methods:
 	 * 1. public native String createArray(int size)
@@ -23,18 +31,10 @@ public class JNIClass {
 	 * It could be be implemented in other Java file.
 	 */
 
-	// Load shared native library
-	static {
-		try {
-			System.load(System.getProperty("user.dir") + "/lib/jnifunctions.so");
-		} catch (UnsatisfiedLinkError e) {
-			System.out.println("Native code library failed to load.\n" + e);
-			System.exit(1);
-		}
-	}
-
 	// Call native methods from main method
 	public static void main(String[] args) {
 	}
+
+	private String value; // variable to store value from native methods
 
 }

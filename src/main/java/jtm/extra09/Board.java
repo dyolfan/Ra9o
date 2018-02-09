@@ -18,21 +18,17 @@ public class Board {
 	}
 
 	/**
-	 * Set value on the board with specified coordinates
-	 * 
-	 * @param x
-	 *            — X coordinates
-	 * @param y
-	 *            — Y coordinates
-	 * @param value
-	 *            — value of the cell
+	 * @return number of candies (marked as '●') on the board
 	 */
-	public void setCandy(int x, int y, char value) {
-		// Note that in mathematical presentation X (horizontal) axis is used
-		// first, but Y (vertical) second
-		// but in array [][] first dimension represents external group (shown on
-		// Y axis), but second — internal group (X axis)
-		board[y][x] = value;
+	public int countBoardCandies() {
+		int candies = 0;
+		for (int j = 0; j < getY(); j++) {
+			for (int i = 0; i < getX(); i++) {
+				if (getCandy(i, j) == '●')
+					candies++;
+			}
+		}
+		return candies;
 	}
 
 	/**
@@ -44,6 +40,19 @@ public class Board {
 	 */
 	public char getCandy(int x, int y) {
 		return board[y][x];
+	}
+
+	/**
+	 * @return cloned copy of the new Board object Note that simple .clone()
+	 *         method will not work
+	 */
+	public Board getClone() {
+		char[][] tmpArr = new char[getY()][getX()];
+		for (int j = 0; j < getY(); j++)
+			for (int i = 0; i < getX(); i++)
+				tmpArr[j][i] = board[j][i];
+		Board tmpBoard = new Board(tmpArr);
+		return tmpBoard;
 	}
 
 	/**
@@ -61,30 +70,21 @@ public class Board {
 	}
 
 	/**
-	 * @return number of candies (marked as '●') on the board
+	 * Set value on the board with specified coordinates
+	 * 
+	 * @param x
+	 *            — X coordinates
+	 * @param y
+	 *            — Y coordinates
+	 * @param value
+	 *            — value of the cell
 	 */
-	public int countBoardCandies() {
-		int candies = 0;
-		for (int j = 0; j < getY(); j++) {
-			for (int i = 0; i < getX(); i++) {
-				if (getCandy(i, j) == '●')
-					candies++;
-			}
-		}
-		return candies;
-	}
-
-	/**
-	 * @return cloned copy of the new Board object Note that simple .clone()
-	 *         method will not work
-	 */
-	public Board getClone() {
-		char[][] tmpArr = new char[getY()][getX()];
-		for (int j = 0; j < getY(); j++)
-			for (int i = 0; i < getX(); i++)
-				tmpArr[j][i] = board[j][i];
-		Board tmpBoard = new Board(tmpArr);
-		return tmpBoard;
+	public void setCandy(int x, int y, char value) {
+		// Note that in mathematical presentation X (horizontal) axis is used
+		// first, but Y (vertical) second
+		// but in array [][] first dimension represents external group (shown on
+		// Y axis), but second — internal group (X axis)
+		board[y][x] = value;
 	}
 
 	/*-

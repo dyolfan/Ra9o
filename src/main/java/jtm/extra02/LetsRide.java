@@ -18,6 +18,37 @@ public class LetsRide {
 		this.passengersAtStart = passengersInStop;
 	}
 
+	public int freeSeats() {
+		int freeSeats = 0;
+		// #3: Calculate how much seats are free in bus
+		freeSeats = seatsCount - passengersCount;
+		return freeSeats;
+	}
+
+	public int getBusStopCount() {
+		return busStopCount;
+	}
+
+	public int getPassengersAtStart() {
+		return passengersAtStart;
+	}
+
+	public int getPassengersCount() {
+		return passengersCount;
+	}
+
+	public int getSeatsCount() {
+		return seatsCount;
+	}
+
+	public boolean isFull() {
+		boolean status = false;
+		// #4: Check if bus is full.
+		if (passengersCount == seatsCount)
+			status = true;
+		return status;
+	}
+
 	public int passengersAtRouteEnd() {
 		// #2: Calculate how many passengers will be in bus at the end of
 		// route. Overall passenger count
@@ -35,47 +66,16 @@ public class LetsRide {
 		return passengersCount;
 	}
 
-	public int freeSeats() {
-		int freeSeats = 0;
-		// #3: Calculate how much seats are free in bus
-		freeSeats = seatsCount - passengersCount;
-		return freeSeats;
-	}
-
-	public boolean isFull() {
-		boolean status = false;
-		// #4: Check if bus is full.
-		if (passengersCount == seatsCount)
-			status = true;
-		return status;
-	}
-
-	public int getBusStopCount() {
-		return busStopCount;
-	}
-
 	public void setBusStopCount(int busStopCount) {
 		this.busStopCount = busStopCount;
-	}
-
-	public int getPassengersAtStart() {
-		return passengersAtStart;
 	}
 
 	public void setPassengersAtStart(int passengersAtStart) {
 		this.passengersAtStart = passengersAtStart;
 	}
 
-	public int getPassengersCount() {
-		return passengersCount;
-	}
-
 	public void setPassengersCount(int passengersCount) {
 		this.passengersCount = passengersCount;
-	}
-
-	public int getSeatsCount() {
-		return seatsCount;
 	}
 
 	public void setSeatsCount(int seatsCount) {
