@@ -1,7 +1,7 @@
 package jtm.extra09;
 
 public class GameFactory {
-
+	
 	/**
 	 * Adds new crocodile to the list of the game
 	 * 

@@ -7,6 +7,8 @@ package jtm.extra09;
  * (if there are any) and leaves his footsteps on the board.
  * Actual movements depend on implemented MoveStrategy.
  */
+
+
 public interface MoveStrategy {
 	/*-
 	 * @param crocodile

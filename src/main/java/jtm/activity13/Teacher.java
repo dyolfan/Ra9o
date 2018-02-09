@@ -6,8 +6,6 @@ public class Teacher {
 	private int id;
 	private String lastName;
 
-	// TODO process passed values
-
 	public Teacher(int id, String firstName, String lastName) {
 		this.id = id;
 		this.firstName = firstName;
@@ -15,22 +13,17 @@ public class Teacher {
 	}
 
 	public String getFirstName() {
-		// TODO return required value
 		return firstName;
 	}
 
 	public int getID() {
-		// TODO return required value
 		return id;
 	}
 
 	public String getLastName() {
-		// TODO return required value
 		return lastName;
 	}
 
-	// TODO
-	// Override toString() method which returns teacher in form "Name Surname"
 	@Override
 	public String toString() {
 		return firstName + " " + lastName;

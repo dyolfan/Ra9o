@@ -2,6 +2,8 @@ package jtm.extra14;
 
 public class JNIClass {
 
+	private String value; // variable to store value from native methods
+	
 	// Load shared native library
 	static {
 		try {
@@ -12,17 +14,23 @@ public class JNIClass {
 		}
 	}
 
-	/*- TODO #1 declare following native methods:
+	/*-   declare following native methods:
 	 * 1. public native String createArray(int size)
 	 * 2. public native void printArray(String string)
 	 * 3. public static native void printHello()
 	 */
+	
+	public native String createArray(int size);
+	public native void printArray(String string);
+	public static native void printHello();
 
 
-	/*- TODO #2
+	/*- 
 	 * Implement public getter and setter for value
 	 */
 
+	public native String getValue();
+	public native String setValue();
 
 	// TODO #3 compile this class and generate C header file from it
 
@@ -33,8 +41,7 @@ public class JNIClass {
 
 	// Call native methods from main method
 	public static void main(String[] args) {
+		JNIClass test = new JNIClass();
+		JNIClass.printHello();
 	}
-
-	private String value; // variable to store value from native methods
-
 }

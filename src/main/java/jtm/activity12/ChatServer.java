@@ -28,7 +28,7 @@ public class ChatServer implements Runnable {
 	public static void main(String[] args) {
 		// 1. initialize vector of connections#
 
-		connections = new Vector();
+		connections = new Vector<ChatServer>();
 		
 //		ChatServer cServer = new ChatServer(new Socket());
 //		connections.add(cServer);
@@ -119,7 +119,6 @@ public class ChatServer implements Runnable {
 				try {
 					client.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				break;

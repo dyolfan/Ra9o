@@ -6,6 +6,7 @@ import java.util.List;
  * Crocodile board game which compares scores of different crocodiles
  * 
  */
+
 public class CrocodileGame {
 	public static Board board; // Shared board of the game
 	public static List<Crocodile> crocodile; // List of crocodiles

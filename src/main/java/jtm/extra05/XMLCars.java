@@ -1,6 +1,12 @@
 
 package jtm.extra05;
 
+import java.io.File;
+
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Validator;
+
 // TODO #1
 // Import necessary classes from javax.xml.* and, if necessary org.w3c.dom.*
 
@@ -9,7 +15,7 @@ public class XMLCars {
 	/*- TODO #2
 	 * Declare static variables to remember previously generated structure of XML
 	 */
-
+	static public String prevStructure;
 
 	/*-
 	 * @param schemaSource — String containing XSD schema definition from car.xsd file

@@ -67,6 +67,7 @@ public class SimpleCalc {
 	// if (long && complicated || statement)
 	// assert false: "message if statement not fulfilled";
 	//
+	
 	private static void validateInput(int a, int b, String operation) {
 		if ((a < -10) && (b < -10))
 			assert false : "input value a: " + a + " is below -10 and b: " + b + " is below -10";

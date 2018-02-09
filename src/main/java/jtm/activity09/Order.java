@@ -4,7 +4,7 @@ package jtm.activity09;
  * Implement Comparable interface with Order class
  * Hint! Use generic type of comparable items in form: Comparable<Order>
  * 
- * TODO #2 Override/implement necessary methods for Order class:
+ * #2 Override/implement necessary methods for Order class:
  * - Order(String orderer, String itemName, Integer count) — constructor of the Order
  * - int compareTo(Order order) — comparison implementation according to logic described below
  * - boolean equals(Object object) — check equality of orders
@@ -38,14 +38,13 @@ public class Order implements Comparable<Order> {
 
 	@Override
 	public int compareTo(Order arg0) {
-		if(this.customer.equals(arg0.customer)  && this.name.equals(arg0.name) && this.count == arg0.count){
-			return 0;
-	} else if (this.customer.compareTo(arg0.customer) < 0 || this.name.compareTo(arg0.name) < 0|| this.count < arg0.count) {
-		return -1;
-	} else {
-		return 1;
-	}
-		
+	if(this.customer.equals(arg0.customer)  && this.name.equals(arg0.name) && this.count == arg0.count)
+		return 0;
+	else if (this.customer.compareTo(arg0.customer) < 0 || this.name.compareTo(arg0.name) < 0|| this.count < arg0.count) {
+			return -1;
+		} else {
+			return 1;
+		}
 	}
 
 	@Override

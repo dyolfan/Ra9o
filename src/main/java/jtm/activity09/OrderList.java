@@ -7,11 +7,11 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeSet;
 
-/*- TODO #2
+/*-  #2
  * Implement Iterator interface with OrderList class
  * Hint! Use generic type argument of iterateable items in form: Iterator<Order>
  * 
- * TODO #3 Override/implement public methods for OrderList class:
+ * #3 Override/implement public methods for OrderList class:
  * - OrderList()                — create new empty OrderList
  * - add(Order item)            — add passed order to the OrderList
  * - List<Order> getItemsList() — List of all customer orders				
@@ -26,7 +26,7 @@ import java.util.TreeSet;
  * 1. To convert OrderList to String, reuse .toString() method of List.toString()
  * 2. Use built in List.sort() method to sort list of orders
  * 
- * TODO #4
+ * #4
  * When implementing getItemsSet() method, join all requests for the same item from different customers
  * in following way: if there are two requests:
  *  - ItemN: Customer1: 3
@@ -145,20 +145,5 @@ public class OrderList implements Iterator<Order> {
 			else msg += list.get(i).toString() + ", ";
 		msg += "]";
 		return msg;
-	}
-	
-	
-//	public static void main(String... args) {
-//		OrderList orderList = new OrderList();
-//		Order order1 = new Order("Kirils", "PC", 5);
-//		Order order2 = new Order("Marina", "Dildo", 100);
-//		Order order3 = new Order("Andrej", "Brains", 4);
-//		orderList.add(order1);
-//		orderList.add(order2);
-//		orderList.add(order3);
-//		
-//		orderList.toString();
-//	}
-	
-	
+	}	
 }

@@ -13,7 +13,7 @@ public class TeacherManager {
 	protected Connection conn;
 
 	public TeacherManager() {
-		// TODO #1 When new TeacherManager is created, create connection to the
+		// #1 When new TeacherManager is created, create connection to the
 		// database server:
 		// url = "jdbc:mysql://localhost/?autoReconnect=true&useSSL=false"
 		// user = "root"
@@ -31,22 +31,19 @@ public class TeacherManager {
 			String pass = "abcd1234";
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/?autoReconnect=true&useSSL=false",
 					user, pass);
-			
 		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
 
 	public void closeConnecion() {
-		// TODO Close connection if and reset it to release connection to the
+		// Close connection if and reset it to release connection to the
 		// database server
 		try {
 			conn.close();
 			conn = null;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -80,7 +77,7 @@ public class TeacherManager {
 	 * @throws SQLException
 	 */
 	public Teacher findTeacher(int id) throws SQLException {
-		// TODO #2 Write an sql statement that searches teacher by ID.
+		//  #2 Write an sql statement that searches teacher by ID.
 		// If teacher is not found return Teacher object with zero or null in
 		// its fields!
 		// Hint: Because default database is not set in connection,
@@ -92,9 +89,6 @@ public class TeacherManager {
 				
 		ResultSet rs = stm.executeQuery("SELECT * FROM database_activity.Teacher where id=" + id);
 			
-//			PreparedStatement prSt = conn.prepareStatement("SELECT firstname, lastname FROM database_activity.Teacher where id=?");
-//			prSt.setLong(1, id);
-//			ResultSet rs = prSt.executeQuery();
 		if (rs.next()){
 			name = rs.getString("firstname");
 			surname = rs.getString("lastname");
@@ -120,7 +114,7 @@ public class TeacherManager {
 	 */
 	public List<Teacher> findTeacher(String firstName, String lastName) throws Exception {
 		List<Teacher> results = new ArrayList<Teacher>();
-		// TODO #3 Write an sql statement that searches teacher by first and
+		// #3 Write an sql statement that searches teacher by first and
 		// last name and returns results as ArrayList<Teacher>.
 		// Note that search results of partial match
 		// in form ...like '%value%'... should be returned
@@ -150,7 +144,7 @@ public class TeacherManager {
 	 */
 
 	public boolean insertTeacher(String firstName, String lastName) throws SQLException {
-		// TODO #4 Write an sql statement that inserts teacher in database.
+		// #4 Write an sql statement that inserts teacher in database.
 		java.sql.Statement stm = conn.createStatement();
 		
 		int rs = stm.executeUpdate("INSERT INTO database_activity.Teacher(firstname, lastname) VALUES ('" + firstName + "', '" + lastName + "')");
@@ -174,7 +168,7 @@ public class TeacherManager {
 	 * @throws SQLException
 	 */
 	public boolean insertTeacherAll(int id, String firstName, String lastName) throws SQLException {
-		// TODO #5 Write an sql statement that inserts teacher in database.
+		// #5 Write an sql statement that inserts teacher in database.
 		java.sql.Statement stm = conn.createStatement();
 
 		
@@ -199,7 +193,7 @@ public class TeacherManager {
 	 */
 	public boolean updateTeacher(Teacher teacher) throws SQLException {
 		boolean status = false;
-		// TODO #6 Write an sql statement that updates teacher information.
+		// #6 Write an sql statement that updates teacher information.
 		java.sql.Statement stm = conn.createStatement();
 		PreparedStatement prSt = conn.prepareStatement("UPDATE database_activity.Teacher SET id=?, firstname=?, lastname=? WHERE id=?");
 		prSt.setInt(1, teacher.getID());

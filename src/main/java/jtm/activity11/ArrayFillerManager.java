@@ -34,10 +34,12 @@ public class ArrayFillerManager {
 		// buffering and scaling of the execution.                                           Use notify.
 
 		System.out.println("*****PARALEL********");
+		
 		ArrayFiller filler1 = new ArrayFiller(latency, minValue, maxValue, 0, array.length * 1/8 -1);
 		ArrayFiller filler2 =  new ArrayFiller(latency, minValue, maxValue, array.length * 1/8, array.length/4 -1);
 		ArrayFiller filler3 = new ArrayFiller(latency, minValue, maxValue, array.length/4, array.length/2 -1);
 		ArrayFiller filler4 = new ArrayFiller(latency, minValue, maxValue, array.length/2, array.length-1);
+		
 		Thread t1 = new Thread(filler1);
 		Thread t2 = new Thread(filler2);
 		Thread t3 = new Thread(filler3);
@@ -58,38 +60,10 @@ public class ArrayFillerManager {
 		} catch (InterruptedException e) {
 			  e.printStackTrace();
 		}
-//		  t1.start();
-//	        try {
-//	            t1.join(200);
-//	        } catch (InterruptedException e) {
-//	            e.printStackTrace();
-//	        }
-//	        
-//	        t2.start();
-//	        try {
-//	            t2.join(400);
-//	        } catch (InterruptedException e) {
-//	            e.printStackTrace();
-//	        }
-//	        
-//	        t3.start();
-//	        try { 
-//	        	t3.join(800);
-//	        } catch (InterruptedException e) {
-//	            e.printStackTrace();
-//	        }
-//	        
-//	        try {
-//	            t1.join();
-//	            t2.join();
-//	            t3.join();
-//	        } catch (InterruptedException e) {
-//	            e.printStackTrace();
-//	        }
 	}
 
 	public static void fillSequentially() {
-		// TODO create cycle which creates one ArrayFiller object
+		//  create cycle which creates one ArrayFiller object
 		// with filling range for ALL array but executed just in SINGLE thread
 		// by invocation of .run() method directly.
 		// Note that this method emulates, what would happen if you would do
@@ -101,7 +75,7 @@ public class ArrayFillerManager {
 	}
 	
 	public static void fillStupidly() {
-		// TODO create cycle which creates new ArrayFiller objects
+		// create cycle which creates new ArrayFiller objects
 		// with filling range of only ONE cell at a time (i.e. range from..to is
 		// 0..0, then 1..1, etc.) and invoke .run() method for these objects.
 		// Note, that invocation of .run() method directly executes it in
@@ -117,18 +91,8 @@ public class ArrayFillerManager {
 		
 	}
 
-	public static void main(String...args) {
-//		int[] array = ArrayFillerManager.setUp(20, 300, 10, 20);
-//		ArrayFillerManager.array = array;
-//		ArrayFillerManager.fillStupidly();
-//		System.out.println("\n__________________________________\n");
-//		ArrayFillerManager.fillSequentially();
-//		System.out.println("\n__________________________________\n");
-//		ArrayFillerManager.fillParalelly();
-	}
-
 	public static int[] setUp(int arraySize, int latency, int minValue, int maxValue) {
-		// TODO save passed values in prepared structure
+		// save passed values in prepared structure
 		// initialize array with passed size
 		// initialize list of threads
 		// return reference to the initialized array
@@ -152,5 +116,4 @@ public class ArrayFillerManager {
 		array = new int[arraySize];
 		return array;
 	}
-	
 }

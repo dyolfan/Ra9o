@@ -12,7 +12,7 @@ public class ArrayFiller implements Runnable {
 	Random random; // Pseudo-random generator
 
 	public ArrayFiller(int latency, int minValue, int maxValue) {
-		// TODO from this constructor call another constructor with more
+		// from this constructor call another constructor with more
 		// parameters and fill missing
 		// values with fixed literals
 		
@@ -25,7 +25,7 @@ public class ArrayFiller implements Runnable {
 	}
 
 	public ArrayFiller(int latency, int minValue, int maxValue, int from, int to) {
-		// TODO save passed values to created filler object
+		// save passed values to created filler object
 		// Create and initialize pseudo-random generator. See more at:
 		// http://docs.oracle.com/javase/7/docs/api/java/util/Random.html
 		
@@ -36,7 +36,7 @@ public class ArrayFiller implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO when invoked, put filler to sleep for required amount of latency
+		// when invoked, put filler to sleep for required amount of latency
 		// then fill ArrayFillerManager.array from..to cells with random values
 		// in
 		// minValue..maxValue range

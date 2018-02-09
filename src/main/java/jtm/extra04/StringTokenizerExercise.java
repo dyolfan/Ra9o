@@ -17,7 +17,7 @@ public class StringTokenizerExercise {
 	public List<Student> createFromFile(String filepath, String delimiter) {
 		File students = new File(filepath);
 		List<Student> list = new ArrayList<Student>();
-		BufferedReader in = null;
+		BufferedReader in;
 		// TODO # 3 Implement method which reads data from file and creates
 		// Student objects with that data. Each line from file contains data for
 		// 1 Student object.
@@ -35,6 +35,7 @@ public class StringTokenizerExercise {
 						Integer.parseInt(temp[3]));
 				list.add(tempStudent);
 			}
+			br.close();
 		} catch (FileNotFoundException e) {
 			System.out.print("File Not Found");
 			e.printStackTrace();
@@ -42,13 +43,12 @@ public class StringTokenizerExercise {
 			System.out.print("Problems with reading class");
 			e.printStackTrace();
 		}
-
 		return list;
 	}
 
 	public String[] splitString(String text, String delimiter) {
 		String[] list = null;
-		// TODO # 1 Split passed text by given delimiter and return array with
+		// 1 Split passed text by given delimiter and return array with
 		// split strings.
 		// HINT: Use System.out.println to better understand split method's
 		// functionality.
@@ -57,7 +57,7 @@ public class StringTokenizerExercise {
 	}
 
 	public List<String> tokenizeString(String text, String delimiter) {
-		// TODO # 2 Tokenize passed text by given delimiter and return list with
+		// 2 Tokenize passed text by given delimiter and return list with
 		// tokenized strings.
 		List<String> list = new ArrayList<>();
 		StringTokenizer multiTokenizer = new StringTokenizer(text, delimiter);
